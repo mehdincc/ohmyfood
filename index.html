@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ohmyfood – Paris</title>
+
+    <!-- Polices: titres (Shrikhand) & texte (Roboto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icônes -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfF5ZG5b3szf3HkG1xC2R5BqOB1x1kXbkLa9y1x6BpVQYxZVQm9a8BVw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS compilé depuis SASS -->
+    <link rel="stylesheet" href="sass/main.scss" />
+  </head>
+  <body class="of-app"></body>
+</html>
+
+<!-- Header -->
+<header class="of-header">
+  <div class="of-header__brand">
+    <img
+      class="of-header__logo"
+      src="assets/images/logo/ohmyfood@2x.svg"
+      alt="ohmyfood"
+    />
+  </div>
+
+  <!-- Localisation  -->
+  <form class="location" action="#" method="get">
+    <label for="city" class="location__icon">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+    </label>
+    <input
+      type="text"
+      id="city"
+      name="city"
+      class="location__input"
+      placeholder="Paris, Belleville"
+      aria-label="Choisir une ville"
+    />
+  </form>
+</header>
+<main>
+  <!-- Hero -->
+  <section class="of-hero">
+    <h1 class="of-hero__title">Réservez le menu qui vous convient</h1>
+    <p class="of-hero__subtitle">
+      Découvrez des restaurants d’exception, sélectionnés par nos soins.
+    </p>
+    <a class="of-btn of-btn--primary" href="#restaurants"
+      >Explorer nos restaurants</a
+    >
+  </section>
+</main>
