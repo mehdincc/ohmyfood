@@ -5,46 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ohmyfood – Paris</title>
 
-    <!-- Polices: titres (Shrikhand) & texte (Roboto) -->
+    <!-- Polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Icônes -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfF5ZG5b3szf3HkG1xC2R5BqOB1x1kXbkLa9y1x6BpVQYxZVQm9a8BVw=="
+    <!-- Font Awesome Kit -->
+    <script
+      src="https://kit.fontawesome.com/f87d390902.js"
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    ></script>
 
-    <!-- CSS compilé depuis SASS -->
+    <!-- Ton CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body class="of-app">
     <!-- Header -->
     <header class="of-header">
       <div class="of-header__brand">
-        <a href="index.html" class="of-header__logo">ohmyfood</a>
+        <span class="of-header__logo">ohmyfood</span>
       </div>
 
-      <!-- Localisation  -->
-      <form class="location" action="#" method="get">
-        <label for="city" class="location__icon">
-          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+      <form class="location">
+        <label class="location__icon">
+          <i class="fa-solid fa-location-dot"></i>
         </label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          class="location__input"
-          placeholder="Paris, Belleville"
-          aria-label="Choisir une ville"
-        />
+        <input class="location__input" placeholder="Paris, Belleville" />
       </form>
     </header>
     <main>
@@ -85,7 +74,7 @@
       </section>
 
       <!-- Restaurants -->
-      <section class="of-restos">
+      <section id="restaurants" class="of-restos">
         <h2>Restaurants</h2>
 
         <div class="of-restos__cards">

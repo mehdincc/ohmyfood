@@ -1,0 +1,40 @@
+@use "../base/global" as *;
+
+/* ===== HEADER ===== */
+.of-header {
+  background: $color-white;
+  position: relative;
+
+  &__brand {
+    background: $color-white;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 4px #00000026; // équiv. rgba(0,0,0,.15)
+  }
+}
+
+/* ===== BARRE DE LOCALISATION ===== */
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-citybar;
+  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+  padding: 12px;
+  padding-left: 64px;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+
+  &__icon i { font-size: 16px; color: $color-text; }
+
+  &__input {
+    border: none; background: transparent; outline: none;
+    font-family: $font-main; font-weight: 500; font-size: 16px;
+    color: $color-text; -webkit-text-fill-color: $color-text; caret-color: $color-text;
+
+    &:focus { color: $color-text; -webkit-text-fill-color: $color-text; }
+  }
+}

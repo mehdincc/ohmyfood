@@ -1,0 +1,75 @@
+
+/* =========================
+   GLOBAL STYLES
+   ========================= */
+
+/* ===== VARIABLES ===== */
+$color-primary:   #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary:  #99E2D0;
+$color-badge-text:#008766;
+
+$color-text:  #353535;
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-muted: #7E7E7E;
+
+$color-light:   #F6F6F6;
+$color-citybar: #EAEAEA;
+$color-footer:  #353535;
+
+$gradient-primary: linear-gradient(193.33deg,#9356DC -11.44%,#FF79DA 123.93%);
+
+$font-title: "Shrikhand", cursive;
+$font-main:  "Roboto", sans-serif;
+
+/* ===== RESET ===== */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+
+img { display: block; max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+button { border: 0; background: none; cursor: pointer; }
+
+/* ===== TYPOGRAPHIE ===== */
+body {
+  font-family: $font-main; // Roboto
+  color: $color-text;
+  background: $color-light;
+}
+
+h1, h2 {
+  font-family: $font-main;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h3 {
+  font-family: $font-main;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ===== LOGOS ===== */
+.of-header__logo {
+  font-family: $font-title; // Shrikhand
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+}
+
+.of-logo-footer {
+  font-family: $font-title; // Shrikhand
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* ===== CONTENEUR ===== */
+.of-container {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+html {
+  scroll-behavior: smooth;
+}

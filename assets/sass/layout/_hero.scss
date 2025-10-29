@@ -1,0 +1,25 @@
+@use "../base/global" as *;
+
+/* ===== HERO ===== */
+.of-hero {
+  text-align: center;
+  background: $color-light;
+  padding: 40px 20px 50px;
+
+  &__title {
+    margin-bottom: 16px;
+    font-weight: 700;
+    margin-left: 18px;
+    margin-right: 18px;
+    color: $color-black;
+  }
+
+  &__subtitle {
+    font-family: $font-main;
+    font-weight: 300;
+    font-size: 18px;
+    color: $color-text;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
