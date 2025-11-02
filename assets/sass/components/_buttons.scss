@@ -2,38 +2,45 @@
 
 /* ===== BOUTONS ===== */
 .of-btn {
-  display: inline-block;
-  width: 218px;
-  height: 50px;
+  display: inline-flex;              // même rendu pour <a> et <button>
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-decoration: none;             // enlève soulignement du <a>
   border: none;
   border-radius: 25px;
   cursor: pointer;
 
+  width: 218px;
+  height: 50px;
+
   font-family: $font-main;
   font-weight: 500;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 1;
   text-align: center;
-  vertical-align: middle;
   color: $color-white;
 
-  transition: all 0.3s ease;
-  opacity: 1;
+  transition:
+    box-shadow .25s ease,
+    filter .25s ease,
+    transform .15s ease;
+}
 
-  // bouton principal
-  &--primary {
-    background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
-    box-shadow: 0px 4px 10px 0px #00000040;
+/* Bouton principal (violet → rose) */
+.of-btn--primary {
+  background-image: linear-gradient(to top, #9356DC 0%, #FF79DA 100%);
+  box-shadow: 0 4px 10px #00000040;
 
-    &:hover {
-      background: linear-gradient(
-          200.64deg,
-          #9356DC -5.2%,
-          #FF79DA 110.74%
-        ),
-        linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
-      box-shadow: 0px 4px 15px 0px #00000059;
-      filter: brightness(1.05);
-    }
+  &:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 4px 15px #00000059;
+  }
+
+  &:active { transform: translateY(1px); }
+
+  &:focus-visible {
+    outline: 2px solid rgba(255,255,255,0.6);
+    outline-offset: 2px;
   }
 }

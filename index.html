@@ -43,14 +43,14 @@
         <p class="of-hero__subtitle">
           Découvrez des restaurants d’exception, sélectionnés par nos soins.
         </p>
-        <button class="of-btn of-btn--primary" href="#restaurants">
+        <a href="#restaurants" class="of-btn of-btn--primary" role="button">
           Explorer nos restaurants
-        </button>
+        </a>
       </section>
 
       <!-- Étapes (fonctionnement) -->
       <section class="of-steps">
-        <h2 id="steps-title" class="of-section-title">Fonctionnement</h2>
+        <h2 id="steps-title">Fonctionnement</h2>
         <ol class="of-steps__list">
           <li class="of-steps__item">
             <span class="of-steps__icon"
@@ -73,111 +73,134 @@
         </ol>
       </section>
 
-      <!-- Restaurants -->
+      <!-- SECTION RESTAURANTS -->
       <section id="restaurants" class="of-restos">
         <h2>Restaurants</h2>
 
         <div class="of-restos__cards">
-          <!-- Carte resto La palette du goût -->
-          <a class="of-card" href="#">
-            <div class="of-card__img-wrapper">
-              <img
-                class="of-card__img"
-                src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
-                alt="La palette du goût"
-              />
-              <span class="of-card__badge">Nouveau</span>
-            </div>
-            <div class="of-card__content">
-              <h3 class="of-card__title">La palette du goût</h3>
-              <p class="of-card__location">Ménilmontant</p>
-            </div>
-            <button
-              class="of-like"
-              type="button"
-              aria-label="Ajouter aux favoris"
-            >
-              <span class="sr-only">Ajouter aux favoris</span>
-              <i class="fa-solid fa-heart"></i>
-            </button>
-          </a>
+          <!-- La palette du goût -->
+          <article class="of-card">
+            <a class="of-card__link" href="#">
+              <div class="of-card__img-wrapper">
+                <img
+                  class="of-card__img"
+                  src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
+                  alt="La palette du goût"
+                />
+                <span class="of-card__badge">Nouveau</span>
+              </div>
+              <div class="of-card__content">
+                <h3 class="of-card__title">La palette du goût</h3>
+                <p class="of-card__location">Ménilmontant</p>
+              </div>
+            </a>
 
-          <!-- Carte resto La note enchantée -->
-          <a class="of-card" href="#">
-            <div class="of-card__img-wrapper">
-              <img
-                class="of-card__img"
-                src="assets/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg"
-                alt="La note enchantée"
-              />
-              <span class="of-card__badge">Nouveau</span>
-            </div>
-            <div class="of-card__content">
-              <h3 class="of-card__title">La note enchantée</h3>
-              <p class="of-card__location">Charonne</p>
-            </div>
+            <!-- Bouton cœur -->
             <button
               class="of-like"
               type="button"
               aria-label="Ajouter aux favoris"
             >
-              <span class="sr-only">Ajouter aux favoris</span>
-              <i class="fa-solid fa-heart"></i>
+              <i
+                class="fa-regular fa-heart of-like__empty"
+                aria-hidden="true"
+              ></i>
+              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
             </button>
-          </a>
+          </article>
 
-          <!-- Carte resto À la française -->
-          <a class="of-card" href="#">
-            <div class="of-card__img-wrapper">
-              <img
-                class="of-card__img"
-                src="assets/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
-                alt="À la française"
-              />
-            </div>
-            <div class="of-card__content">
-              <h3 class="of-card__title">À la française</h3>
-              <p class="of-card__location">Cité Rouge</p>
-            </div>
-            <button
-              class="of-like"
-              type="button"
-              aria-label="Ajouter aux favoris"
-            >
-              <span class="sr-only">Ajouter aux favoris</span>
-              <i class="fa-solid fa-heart" aria-hidden="true"></i>
-            </button>
-          </a>
+          <!-- La note enchantée -->
+          <article class="of-card">
+            <a class="of-card__link" href="#">
+              <div class="of-card__img-wrapper">
+                <img
+                  class="of-card__img"
+                  src="assets/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg"
+                  alt="La note enchantée"
+                />
+                <span class="of-card__badge">Nouveau</span>
+              </div>
+              <div class="of-card__content">
+                <h3 class="of-card__title">La note enchantée</h3>
+                <p class="of-card__location">Charonne</p>
+              </div>
+            </a>
 
-          <!-- Carte resto Le délice des sens -->
-          <a class="of-card" href="#">
-            <div class="of-card__img-wrapper">
-              <img
-                class="of-card__img"
-                src="assets/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
-                alt="Le délice des sens"
-              />
-            </div>
-            <div class="of-card__content">
-              <h3 class="of-card__title">Le délice des sens</h3>
-              <p class="of-card__location">Folie-Méricourt</p>
-            </div>
             <button
               class="of-like"
               type="button"
               aria-label="Ajouter aux favoris"
             >
-              <span class="sr-only">Ajouter aux favoris</span>
-              <i class="fa-solid fa-heart"></i>
+              <i
+                class="fa-regular fa-heart of-like__empty"
+                aria-hidden="true"
+              ></i>
+              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
             </button>
-          </a>
+          </article>
+
+          <!-- À la française -->
+          <article class="of-card">
+            <a class="of-card__link" href="#">
+              <div class="of-card__img-wrapper">
+                <img
+                  class="of-card__img"
+                  src="assets/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
+                  alt="À la française"
+                />
+              </div>
+              <div class="of-card__content">
+                <h3 class="of-card__title">À la française</h3>
+                <p class="of-card__location">Cité Rouge</p>
+              </div>
+            </a>
+
+            <button
+              class="of-like"
+              type="button"
+              aria-label="Ajouter aux favoris"
+            >
+              <i
+                class="fa-regular fa-heart of-like__empty"
+                aria-hidden="true"
+              ></i>
+              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <!-- Le délice des sens -->
+          <article class="of-card">
+            <a class="of-card__link" href="#">
+              <div class="of-card__img-wrapper">
+                <img
+                  class="of-card__img"
+                  src="assets/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
+                  alt="Le délice des sens"
+                />
+              </div>
+              <div class="of-card__content">
+                <h3 class="of-card__title">Le délice des sens</h3>
+                <p class="of-card__location">Folie-Méricourt</p>
+              </div>
+            </a>
+
+            <button
+              class="of-like"
+              type="button"
+              aria-label="Ajouter aux favoris"
+            >
+              <i
+                class="fa-regular fa-heart of-like__empty"
+                aria-hidden="true"
+              ></i>
+              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
+            </button>
+          </article>
         </div>
       </section>
     </main>
     <footer class="of-footer">
-      <a class="of-footer__brand" href="#">
-        <span class="of-footer__logo">ohmyfood</span>
-      </a>
+      <span class="of-footer__logo">ohmyfood</span>
       <ul class="of-footer__links">
         <li>
           <a href="#">
@@ -187,13 +210,12 @@
         </li>
         <li>
           <a href="#">
-            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+            <i class="fa-solid fa-handshake-angle"></i>
             Devenir partenaire
           </a>
         </li>
-        <li><a href="#">Charte qualité</a></li>
-        <li><a href="#">Conditions générales</a></li>
-        <li><a href="mailto:contact@ohmyfood.com">Nous contacter</a></li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="mailto:contact@ohmyfood.com">Contact</a></li>
       </ul>
     </footer>
   </body>

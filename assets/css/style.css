@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* =========================
    GLOBAL STYLES
    ========================= */
@@ -13,6 +14,10 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 img {
@@ -32,7 +37,7 @@ button {
   cursor: pointer;
 }
 
-/* ===== TYPOGRAPHIE ===== */
+/* ===== TYPO ===== */
 body {
   font-family: "Roboto", sans-serif;
   color: #353535;
@@ -41,28 +46,33 @@ body {
 
 h1,
 h2 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 24px;
+  font: 700 24px/1 "Roboto", sans-serif;
+}
+
+h2 {
+  margin-bottom: 25px;
 }
 
 h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 18px;
+  color: #000000;
 }
 
 /* ===== LOGOS ===== */
-.of-header__logo {
+.of-header__logo,
+.of-logo-footer {
   font-family: "Shrikhand", cursive;
   font-weight: 400;
+}
+
+.of-header__logo {
   font-size: 30px;
   text-align: center;
 }
 
 .of-logo-footer {
-  font-family: "Shrikhand", cursive;
-  font-weight: 400;
   font-size: 18px;
 }
 
@@ -77,18 +87,23 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =========================
+   MIXINS GLOBAUX
+   ========================= */
+/* ===== BREAKPOINTS ===== */
+/* =========================
+   VARIANTES SPÉCIFIQUES MENU
+   ========================= */
+/* Cartes plats */
+/* Typos menu */
 /* ===== HEADER ===== */
 .of-header {
   background: #ffffff;
-  position: relative;
 }
 .of-header__brand {
-  background: #ffffff;
-  padding: 16px 0;
+  padding-block: 16px;
   text-align: center;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1490196078);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ===== BARRE DE LOCALISATION ===== */
@@ -96,80 +111,694 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   background: #eaeaea;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 12px;
-  padding-left: 64px;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
+  padding: 12px 16px;
 }
 .location__icon i {
   font-size: 16px;
   color: #353535;
 }
 .location__input {
-  border: none;
+  border: 0;
   background: transparent;
-  outline: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
+  font: 500 16px/1 "Roboto", sans-serif;
   color: #353535;
-  -webkit-text-fill-color: #353535;
   caret-color: #353535;
 }
-.location__input:focus {
-  color: #353535;
-  -webkit-text-fill-color: #353535;
+
+/* ===== FOOTER ===== */
+.of-footer {
+  background: #353535;
+  color: #ffffff;
+  padding-block: 25px;
+  padding-inline: 25px;
+}
+.of-footer__brand {
+  display: block;
+  margin-bottom: 25px;
+}
+.of-footer__logo {
+  font: 400 18px/1 "Shrikhand", cursive;
+}
+.of-footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+  max-width: 520px;
+}
+.of-footer__links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: inherit;
+  text-decoration: none;
+}
+.of-footer__links i {
+  font-size: 13px;
+  width: 22px;
+  flex: 0 0 22px;
 }
 
 /* ===== HERO ===== */
 .of-hero {
   text-align: center;
   background: #f6f6f6;
-  padding: 40px 20px;
+  padding: 40px 20px 50px;
 }
 .of-hero__title {
+  margin-inline: 18px;
   margin-bottom: 16px;
-  margin-left: 18px;
-  margin-right: 18px;
+  font-weight: 700;
   color: #000000;
 }
 .of-hero__subtitle {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 18px;
+  font: 300 18px/1.4 "Roboto", sans-serif;
   color: #353535;
-  text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+  .of-hero {
+    padding-block: 40px;
+  }
+}
+/* =========================
+   STEPS (Fonctionnement)
+   ========================= */
+.of-steps {
+  background: #ffffff;
+  padding-block: 40px 65px;
+  padding-inline: 20px;
+  /* ===== Liste ===== */
+  /* ===== Carte ===== */
+  /* ===== Pastille numérotée ===== */
+  /* ===== Icône ===== */
+  /* Icône store déjà violette */
+  /* ===== Texte ===== */
+}
+.of-steps__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(12px, 3vw, 20px);
+  counter-reset: step;
+}
+.of-steps__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f6f6f6;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
+  width: min(100%, 335px);
+  margin-inline: auto;
+  min-height: 72px;
+  padding-inline: 30px;
+  cursor: default;
+  transition: box-shadow 0.22s ease, transform 0.18s ease,
+    background-color 0.22s ease;
+  /* Hover doux */
+  /* Icône colorée au survol */
+}
+.of-steps__item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background-color: rgb(251.1, 251.1, 251.1);
+}
+.of-steps__item:hover .of-steps__icon {
+  color: #9356dc;
+}
+.of-steps__item::before {
+  content: counter(step);
+  counter-increment: step;
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: -12px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #9356dc;
+  color: #ffffff;
+  font: 500 13px/1 "Roboto", sans-serif;
+}
+.of-steps__icon {
+  font-size: 18px;
+  color: #7e7e7e;
+  transition: color 0.25s ease;
+}
+.of-steps__icon.fa-store {
+  color: #9356dc;
+}
+.of-steps__text {
+  font: 500 16px/1 "Roboto", sans-serif;
+  color: #353535;
+}
+
+.of-steps__item {
+  width: min(100%, 335px);
+}
+
+/* =========================
+   PAGE MENU – La palette du goût
+   ========================= */
+/* Header spécifique (flèche retour) */
+.is-menu .of-header__brand {
+  position: relative;
+}
+
+.is-menu .of-back {
+  position: absolute;
+  left: 20px; /* ~17–20px maquette */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #353535;
+  font-size: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+.is-menu .of-back:hover {
+  color: #9356dc;
+}
+
+/* Bannière restaurant */
+.of-menu-banner {
+  height: 230px;
+}
+.of-menu-banner img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+}
+
+/* Feuille du menu (débord arrondi) */
+.of-menu {
+  position: relative;
+  margin-top: -60px;
+  background: #f6f6f6;
+  border-radius: 40px 40px 0 0;
+  padding: 30px 16px 40px;
+}
+
+/* =========================
+   Titre + Cœur (PAGE MENU)
+   ========================= */
+/* Conteneur : centre le titre et réserve la place du cœur */
+.of-menu__head {
+  position: relative; /* ancre du cœur */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centre le <h1> */
+  margin-bottom: 10px;
+  padding-right: 48px; /* évite chevauchement du cœur */
+}
+
+/* Titre */
+.of-menu__title {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+/* Cœur — scoped UNIQUEMENT au header du menu
+   (ne touche pas les cards de l’index) */
+.of-menu__head .of-like {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  width: 22px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.of-menu__head .of-like:focus-visible {
+  outline: 2px solid rgba(147, 86, 220, 0.45);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.of-menu__head .of-like .of-like__empty,
+.of-menu__head .of-like .of-like__full {
+  position: absolute;
+  inset: 0;
+  font-size: 22px; /* 22 × 21 (maquette) */
+  line-height: 1;
+  transition: opacity 0.28s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+.of-menu__head .of-like .of-like__empty {
+  color: #000000;
+  opacity: 1;
+}
+.of-menu__head .of-like .of-like__full {
+  opacity: 0;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.of-menu__head .of-like:hover .of-like__full {
+  opacity: 1;
+}
+.of-menu__head .of-like:hover .of-like__empty {
+  opacity: 0;
+}
+
+/* =========================
+   Sections (Entrées / Plats / Desserts)
+   ========================= */
+.of-course {
+  margin-top: 24px;
+}
+
+.of-course__title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+}
+
+.of-course__bar {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #99e2d0;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+/* Liste des plats */
+.of-dishes {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+/* Carte plat */
+.of-dish {
+  display: grid;
+  grid-template-columns: 1fr auto 0; /* texte | prix | check (masqué) */
+  align-items: stretch;
+  min-height: 69px;
+  background: #ffffff;
+  border-radius: 15.04px;
+  box-shadow: 0px 4.01px 15.04px rgba(0, 0, 0, 0.1019607843);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: dishIn 0.45s ease forwards;
+  transition: grid-template-columns 0.25s ease, transform 0.18s ease;
+}
+.of-dish:hover {
+  grid-template-columns: 1fr auto 59px; /* 59px colonne check */
+  transform: translateY(0) scale(1.01);
+}
+
+.of-dish:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.of-dish:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.of-dish:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.of-dish:nth-child(4) {
+  animation-delay: 0.35s;
+}
+
+@keyframes dishIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Contenu du plat */
+.of-dish__content {
+  padding: 15px 7px 15px 15px;
+  min-width: 0;
+}
+
+.of-dish__name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+}
+
+.of-dish__desc {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 15.04px;
+  line-height: 1.35;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Prix */
+.of-dish__price {
+  align-self: end;
+  padding: 0 15px 15px 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 15.04px;
+  line-height: 1;
+  text-align: center;
+  color: #000000;
+  background: transparent;
+  border-left: 1px solid transparent;
+  transition: background 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
+}
+
+/* Panneau vert (hover) */
+.of-dish__check {
+  display: grid;
+  place-items: center;
+  width: 59px;
+  height: 69px;
+  background: #99e2d0;
+  color: #ffffff;
+  border-top-right-radius: 15.04px;
+  border-bottom-right-radius: 15.04px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.of-dish__check i {
+  transition: transform 0.35s ease;
+}
+
+.of-dish:hover .of-dish__check {
+  opacity: 1;
+}
+
+.of-dish:hover .of-dish__check i {
+  transform: rotate(360deg);
+}
+
+.of-dish:hover .of-dish__price {
+  padding-left: 12px;
+}
+
+.of-dish:hover .of-dish__content {
+  padding-right: 4px;
+}
+
+/* CTA */
+.of-menu__cta {
+  display: grid;
+  place-items: center;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .of-menu {
+    padding: 32px 24px 48px;
+  }
+}
 /* ===== BOUTONS ===== */
 .of-btn {
-  display: inline-block;
-  width: 218px;
-  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-decoration: none;
   border: none;
   border-radius: 25px;
   cursor: pointer;
+  width: 218px;
+  height: 50px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 1;
   text-align: center;
-  vertical-align: middle;
   color: #ffffff;
-  transition: all 0.3s ease;
-  opacity: 1;
+  transition: box-shadow 0.25s ease, filter 0.25s ease, transform 0.15s ease;
 }
+
+/* Bouton principal (violet → rose) */
 .of-btn--primary {
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  background-image: linear-gradient(to top, #9356dc 0%, #ff79da 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2509803922);
 }
 .of-btn--primary:hover {
-  background: linear-gradient(200.64deg, #9356dc -5.2%, #ff79da 110.74%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.3490196078);
-  filter: brightness(1.05);
+  filter: brightness(1.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3490196078);
+}
+.of-btn--primary:active {
+  transform: translateY(1px);
+}
+.of-btn--primary:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* ===== SECTION Restaurants ===== */
+.of-restos {
+  margin: 60px 20px 65px 20px;
+}
+.of-restos h2 {
+  margin-bottom: 16px;
+}
+.of-restos__cards {
+  display: grid;
+  gap: 18px;
+}
+
+/* ===== CARTE RESTAURANT ===== */
+.of-card {
+  position: relative;
+  display: block;
+  width: min(100%, 490px);
+  height: 251px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
+  transition: transform 0.3s ease;
+}
+.of-card:hover {
+  transform: scale(1.02);
+}
+
+/* Image */
+.of-card__img-wrapper {
+  height: 175px;
+  overflow: hidden;
+}
+
+.of-card__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* Badge "Nouveau" */
+.of-card__badge {
+  position: absolute;
+  top: 13px;
+  right: 12px;
+  width: 80px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  background: #99e2d0;
+  color: #008766;
+  font: 500 14px "Roboto", sans-serif;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1490196078);
+}
+
+/* Texte */
+.of-card__content {
+  height: 76px;
+  padding: 15px 25px 20px 15px;
+}
+
+.of-card__title {
+  margin-bottom: 3px;
+}
+
+.of-card__location {
+  font: 300 17px "Roboto", sans-serif;
+  color: #000000;
+}
+
+/* ===== SECTION Restaurants ===== */
+.of-restos {
+  margin: 60px 20px 65px 20px;
+}
+
+.of-restos h2 {
+  margin-bottom: 16px;
+}
+
+.of-restos__cards {
+  display: grid;
+  gap: 18px;
+}
+
+/* ===== CARTE RESTAURANT ===== */
+.of-card {
+  position: relative;
+  display: block;
+  width: min(100%, 490px);
+  height: 251px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
+  transition: transform 0.3s ease;
+}
+
+.of-card:hover {
+  transform: scale(1.02);
+}
+
+/* Image */
+.of-card__img-wrapper {
+  height: 175px;
+  overflow: hidden;
+}
+
+.of-card__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* Badge "Nouveau" */
+.of-card__badge {
+  position: absolute;
+  top: 13px;
+  right: 12px;
+  width: 80px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  background: #99e2d0;
+  color: #008766;
+  font: 500 14px "Roboto", sans-serif;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1490196078);
+}
+
+/* Texte */
+.of-card__content {
+  height: 76px;
+  padding: 15px 25px 20px 15px;
+}
+
+.of-card__title {
+  margin-bottom: 3px;
+}
+
+.of-card__location {
+  font: 300 17px "Roboto", sans-serif;
+  color: #000000;
+}
+
+/* --- Coeur : remplissage UNIQUEMENT au survol du bouton --- */
+.of-like {
+  position: absolute;
+  right: 16px;
+  bottom: 24px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  /* petit feedback au survol du bouton */
+}
+.of-like:hover .of-like__empty,
+.of-like:hover .of-like__full {
+  transform: scale(1.08);
+}
+.of-like:focus-visible {
+  outline: 2px solid rgba(147, 86, 220, 0.45);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Deux icônes superposées */
+.of-like__empty,
+.of-like__full {
+  position: absolute;
+  inset: 0;
+  font-size: 24px;
+  line-height: 1;
+  transition: opacity 0.28s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+
+/* vide par défaut */
+.of-like__empty {
+  color: #101010;
+  opacity: 1;
+}
+
+/* plein caché par défaut (dégradé) */
+.of-like__full {
+  opacity: 0;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ❌ Neutralise tout effet hérité du survol de la carte */
+.of-card:hover .of-like__full {
+  opacity: 0;
+}
+
+.of-card:hover .of-like__empty {
+  opacity: 1;
+}
+
+/* ✅ Et n’active le remplissage QUE sur le bouton */
+.of-like:hover .of-like__full {
+  opacity: 1;
+}
+
+.of-like:hover .of-like__empty {
+  opacity: 0;
 } /*# sourceMappingURL=main.css.map */

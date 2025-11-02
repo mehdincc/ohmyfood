@@ -7,19 +7,22 @@
   padding: 40px 20px 50px;
 
   &__title {
+    margin-inline: 18px;   // au lieu de margin-left/right
     margin-bottom: 16px;
     font-weight: 700;
-    margin-left: 18px;
-    margin-right: 18px;
     color: $color-black;
   }
 
   &__subtitle {
-    font-family: $font-main;
-    font-weight: 300;
-    font-size: 18px;
+    font: 300 18px/1.4 $font-main;
     color: $color-text;
-    text-align: center;
     margin-bottom: 30px;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: $bp-tablet) {
+  .of-hero {
+    padding-block: 40px; // un peu plus d’air sur tablette
   }
 }

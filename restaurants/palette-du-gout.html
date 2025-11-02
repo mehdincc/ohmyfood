@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ohmyfood – La palette du goût</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f87d390902.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <!-- CSS compilé -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body class="of-app is-menu">
+    <!-- Header -->
+    <header class="of-header">
+      <div class="of-header__brand of-container">
+        <a class="of-back" href="../index.html" aria-label="Retour">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </a>
+        <span class="of-header__logo">ohmyfood</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- Bannière restaurant -->
+      <div class="of-menu-banner">
+        <img
+          src="../assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
+          alt="La palette du goût"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Feuille du menu -->
+      <section class="of-menu of-container">
+        <header class="of-menu__head">
+          <h1 class="of-menu__title">La palette du goût</h1>
+          <button
+            class="of-like"
+            type="button"
+            aria-label="Ajouter aux favoris"
+          >
+            <i
+              class="fa-regular fa-heart of-like__empty"
+              aria-hidden="true"
+            ></i>
+            <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
+          </button>
+        </header>
+
+        <!-- Entrées -->
+        <section class="of-course" aria-labelledby="entrees-title">
+          <h2 id="entrees-title" class="of-course__title">Entrées</h2>
+          <span class="of-course__bar" aria-hidden="true"></span>
+
+          <ul class="of-dishes">
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Fricassée d'escargots</h3>
+                <p class="of-dish__desc">Au piment d'Espelette</p>
+              </div>
+              <strong class="of-dish__price">25€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Foie gras de canard mi-cuit</h3>
+                <p class="of-dish__desc">Et ses copeaux de truffe noire</p>
+              </div>
+              <strong class="of-dish__price">35€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Œuf au plat</h3>
+                <p class="of-dish__desc">
+                  Assaisonné à la truffe sur lit de caviar
+                </p>
+              </div>
+              <strong class="of-dish__price">20€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Plats -->
+        <section class="of-course" aria-labelledby="plats-title">
+          <h2 id="plats-title" class="of-course__title">Plats</h2>
+          <span class="of-course__bar" aria-hidden="true"></span>
+
+          <ul class="of-dishes">
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Filet de bœuf aux herbes</h3>
+                <p class="of-dish__desc">
+                  Accompagné de sa ribambelle de légumes
+                </p>
+              </div>
+              <strong class="of-dish__price">40€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Parmentier de queue de bœuf</h3>
+                <p class="of-dish__desc">
+                  À la truffe noire sur sa purée de panais
+                </p>
+              </div>
+              <strong class="of-dish__price">35€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Filet de turbot</h3>
+                <p class="of-dish__desc">Aux agrumes</p>
+              </div>
+              <strong class="of-dish__price">44€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Desserts -->
+        <section class="of-course" aria-labelledby="desserts-title">
+          <h2 id="desserts-title" class="of-course__title">Desserts</h2>
+          <span class="of-course__bar" aria-hidden="true"></span>
+
+          <ul class="of-dishes">
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Paris-Brest</h3>
+                <p class="of-dish__desc">Revisité</p>
+              </div>
+              <strong class="of-dish__price">18€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Macaron au chocolat d'exception</h3>
+                <p class="of-dish__desc">Et glace à la vanille de Madagascar</p>
+              </div>
+              <strong class="of-dish__price">22€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+
+            <li class="of-dish">
+              <div class="of-dish__content">
+                <h3 class="of-dish__name">Mousse au chocolat</h3>
+                <p class="of-dish__desc">
+                  Au piment d'Espelette et à la truffe noire
+                </p>
+              </div>
+              <strong class="of-dish__price">23€</strong>
+              <span class="of-dish__check" aria-hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- CTA commander -->
+        <div class="of-menu__cta">
+          <a href="#" class="of-btn of-btn--primary">Commander</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="of-footer">
+      <span class="of-footer__logo">ohmyfood</span>
+      <ul class="of-footer__links">
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+            Proposer un restaurant
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
+            Devenir partenaire
+          </a>
+        </li>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="mailto:contact@ohmyfood.com">Contact</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

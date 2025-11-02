@@ -1,0 +1,235 @@
+@use "../base/global" as *;
+
+/* =========================
+   PAGE MENU – La palette du goût
+   ========================= */
+
+/* Header spécifique (flèche retour) */
+.is-menu .of-header__brand { position: relative; }
+
+.is-menu .of-back {
+  position: absolute;
+  left: 20px;                /* ~17–20px maquette */
+  top: 50%;
+  transform: translateY(-50%);
+  color: $color-text;
+  font-size: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  @include smooth-transition(color);
+  &:hover { color: $color-primary; }
+}
+
+/* Bannière restaurant */
+.of-menu-banner {
+  height: 230px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Feuille du menu (débord arrondi) */
+.of-menu {
+  position: relative;
+  margin-top: -60px;
+  background: $color-light;
+  border-radius: 40px 40px 0 0;
+  padding: 30px 16px 40px;
+}
+
+/* =========================
+   Titre + Cœur (PAGE MENU)
+   ========================= */
+
+/* Conteneur : centre le titre et réserve la place du cœur */
+.of-menu__head {
+  position: relative;                 /* ancre du cœur */
+  display: flex;
+  align-items: center;
+  justify-content: center;            /* centre le <h1> */
+  margin-bottom: 10px;
+  padding-right: 48px;                /* évite chevauchement du cœur */
+}
+
+/* Titre */
+.of-menu__title {
+  @include menu-title;
+  color: $color-black;
+  text-align: center;
+  margin: 0;
+}
+
+/* Cœur — scoped UNIQUEMENT au header du menu
+   (ne touche pas les cards de l’index) */
+.of-menu__head .of-like {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  width: 22px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid rgba($color-primary, .45);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .of-like__empty,
+  .of-like__full {
+    position: absolute;
+    inset: 0;
+    font-size: 22px;                  /* 22 × 21 (maquette) */
+    line-height: 1;
+    transition: opacity .28s ease, transform .18s ease;
+    pointer-events: none;
+  }
+
+  .of-like__empty { color: $color-black; opacity: 1; }
+  .of-like__full  {
+    opacity: 0;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &:hover .of-like__full { opacity: 1; }
+  &:hover .of-like__empty { opacity: 0; }
+}
+
+/* =========================
+   Sections (Entrées / Plats / Desserts)
+   ========================= */
+
+.of-course { margin-top: 24px; }
+
+.of-course__title {
+  font-family: $font-main;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $color-black;
+  margin: 0;
+}
+
+.of-course__bar {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: $color-tertiary;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+/* Liste des plats */
+.of-dishes {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+/* Carte plat */
+.of-dish {
+  display: grid;
+  grid-template-columns: 1fr auto 0;       /* texte | prix | check (masqué) */
+  align-items: stretch;
+  min-height: $card-h;
+  background: $color-white;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(8px);
+  animation: dishIn .45s ease forwards;
+  transition: grid-template-columns .25s ease, transform .18s ease;
+
+  &:hover {
+    grid-template-columns: 1fr auto $check-w; /* 59px colonne check */
+    transform: translateY(0) scale(1.01);
+  }
+}
+
+.of-dish:nth-child(1) { animation-delay: .05s; }
+.of-dish:nth-child(2) { animation-delay: .15s; }
+.of-dish:nth-child(3) { animation-delay: .25s; }
+.of-dish:nth-child(4) { animation-delay: .35s; }
+
+@keyframes dishIn { to { opacity: 1; transform: translateY(0); } }
+
+/* Contenu du plat */
+.of-dish__content {
+  padding: 15px 7px 15px 15px;
+  min-width: 0;
+}
+
+.of-dish__name {
+  @include dish-name;
+  color: $color-black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+}
+
+.of-dish__desc {
+  @include dish-desc;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Prix */
+.of-dish__price {
+  align-self: end;
+  padding: 0 15px 15px 0;
+  @include dish-price;
+  background: transparent;
+  border-left: 1px solid transparent;
+  transition: background .25s ease, padding .25s ease, border-color .25s ease;
+}
+
+/* Panneau vert (hover) */
+.of-dish__check {
+  display: grid;
+  place-items: center;
+  width: $check-w;
+  height: $card-h;
+  background: $color-tertiary;
+  color: $color-white;
+  border-top-right-radius: $card-radius;
+  border-bottom-right-radius: $card-radius;
+  opacity: 0;
+  transition: opacity .2s ease;
+
+  i { transition: transform .35s ease; }
+}
+
+.of-dish:hover .of-dish__check { opacity: 1; }
+.of-dish:hover .of-dish__check i { transform: rotate(360deg); }
+.of-dish:hover .of-dish__price { padding-left: 12px; }
+.of-dish:hover .of-dish__content { padding-right: 4px; }
+
+/* CTA */
+.of-menu__cta {
+  display: grid;
+  place-items: center;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (min-width: $bp-tablet) {
+  .of-menu { padding: 32px 24px 48px; }
+}

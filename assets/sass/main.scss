@@ -1,7 +1,8 @@
-@use "./base/global";    
-@use "./layout/header";
-@use "./layout/hero";
-@use "./layout/footer";
-@use "./components/buttons";
-@use "./components/cards";
-@use "./components/steps";
+@use "base/global";
+@use "layout/header";
+@use "layout/footer";
+@use "layout/hero";
+@use "layout/section-steps";
+@use "layout/menu"; 
+@use "components/buttons";
+@use "components/cards";

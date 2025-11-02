@@ -1,0 +1,95 @@
+@use "../base/global" as *;
+
+/* =========================
+   STEPS (Fonctionnement)
+   ========================= */
+.of-steps {
+  background: $color-white;
+  padding-block: 40px 65px;   // marges haut / bas
+  padding-inline: 20px;       // marges gauche / droite
+
+  /* ===== Liste ===== */
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: clamp(12px, 3vw, 20px);
+    counter-reset: step;
+  }
+
+  /* ===== Carte ===== */
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: $color-light;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px #00000026;
+
+    width: min(100%, 335px);   // largeur mobile max 322px
+    margin-inline: auto;       // centré
+    min-height: 72px;
+    padding-inline: 30px;      // espace pour l’icône
+
+    cursor: default;           
+    transition:
+      box-shadow .22s ease,
+      transform .18s ease,
+      background-color .22s ease;
+
+    /* Hover doux */
+    &:hover {
+      transform: translateX(2px);
+      box-shadow: 0 6px 18px #00000033;
+      background-color: lighten($color-light, 2%);
+    }
+
+    /* Icône colorée au survol */
+    &:hover .of-steps__icon { color: $color-primary; }
+  }
+
+  /* ===== Pastille numérotée ===== */
+  &__item::before {
+    content: counter(step);
+    counter-increment: step;
+
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: -12px;
+    transform: translateY(-50%);
+
+    display: grid;
+    place-items: center;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: $color-primary;
+    color: $color-white;
+    font: 500 13px/1 $font-main;
+  }
+
+  /* ===== Icône ===== */
+  &__icon {
+    font-size: 18px;
+    color: $color-muted;
+    transition: color .25s ease; // transition douce au hover
+  }
+
+  /* Icône store déjà violette */
+  &__icon.fa-store {
+    color: $color-primary;
+  }
+
+  /* ===== Texte ===== */
+  &__text {
+    font: 500 16px/1 $font-main;
+    color: $color-text;
+  }
+}
+  .of-steps__item {
+    width: min(100%, 335px); // élargit légèrement les cartes
+  }

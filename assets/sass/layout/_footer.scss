@@ -1,0 +1,44 @@
+@use "../base/global" as *;
+
+/* ===== FOOTER ===== */
+.of-footer {
+  background: $color-footer;
+  color: $color-white;
+  padding-block: 25px;
+  padding-inline: 25px;
+
+  &__brand {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  &__logo {
+    font: 400 18px/1 $font-title;
+  }
+
+  &__links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 20px;
+    max-width: 520px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: inherit;          // hérite du blanc du parent
+      text-decoration: none;
+    }
+
+    i {
+      font-size: 13px;
+      width: 22px;             // largeur fixe
+      flex: 0 0 22px;          // empêche le rétrécissement
+    }
+
+  
+  }
+}
