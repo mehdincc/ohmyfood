@@ -197,3 +197,24 @@
 /* ✅ Et n’active le remplissage QUE sur le bouton */
 .of-like:hover .of-like__full { opacity:1; }
 .of-like:hover .of-like__empty { opacity:0; }
+
+/* ===== Grille Restaurants – tablette et + ===== */
+@media (min-width: $bp-tablet) {
+  .of-restos {
+    margin: 60px auto 65px;          /* centre la section */
+  }
+
+  .of-restos__cards {
+    /* 2 colonnes fixes de 490px, sans étirer les cartes */
+    grid-template-columns: repeat(2, 490px);
+
+    /* gaps responsives avec plafond demandé */
+    column-gap: clamp(24px, 8vw, 100px);
+    row-gap: clamp(18px, 6vw, 50px);
+
+    /* largeur max finale (2×490 + 100) et centrage */
+    max-width: calc(490px * 2 + 100px);
+    margin-inline: auto;
+    justify-content: center;         /* centre la grille si plus large */
+  }
+}

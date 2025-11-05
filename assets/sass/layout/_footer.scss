@@ -42,3 +42,49 @@
   
   }
 }
+
+/* ===== FOOTER — tablette et + ===== */
+@media (min-width: $bp-desktop) {
+  .of-footer {
+    position: relative;
+    background: $color-footer;
+    color: $color-white;
+    padding-block: 65px 30px;    /* top 65px, bottom 30px */
+    padding-inline: 0;
+  }
+
+  /* Logo à gauche à 65px du bord gauche */
+  .of-footer__logo {
+   position: absolute;
+   right: 65px;       /* ✅ distance du bord droit */
+
+    
+  }
+
+  /* Liste des liens centrée horizontalement */
+  .of-footer__links {
+    max-width: none;
+    margin: 0 auto;              /* ✅ centrée */
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    gap: 40px;                   /* espace entre les liens */
+    padding-right: 20%;
+  }
+
+  .of-footer__links a {
+    font-size: 16px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .of-footer__links i {
+    width: 22px;
+    flex: 0 0 22px;
+    font-size: 13px;
+  }
+}

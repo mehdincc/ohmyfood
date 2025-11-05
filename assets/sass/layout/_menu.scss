@@ -63,11 +63,10 @@
   margin: 0;
 }
 
-/* Cœur — scoped UNIQUEMENT au header du menu
-   (ne touche pas les cards de l’index) */
+/* Cœur  */
 .of-menu__head .of-like {
   position: absolute;
-  top: 8px;
+  top: 4px;
   right: 16px;
   width: 22px;
   height: 21px;
@@ -110,7 +109,9 @@
    Sections (Entrées / Plats / Desserts)
    ========================= */
 
-.of-course { margin-top: 24px; }
+.of-course { 
+  margin-top: 24px;
+  margin-bottom: 40px; }
 
 .of-course__title {
   font-family: $font-main;
@@ -162,9 +163,9 @@
 }
 
 .of-dish:nth-child(1) { animation-delay: .05s; }
-.of-dish:nth-child(2) { animation-delay: .15s; }
-.of-dish:nth-child(3) { animation-delay: .25s; }
-.of-dish:nth-child(4) { animation-delay: .35s; }
+.of-dish:nth-child(2) { animation-delay: .5s; }
+.of-dish:nth-child(3) { animation-delay: 1s; }
+.of-dish:nth-child(4) { animation-delay: 1.5s; }
 
 @keyframes dishIn { to { opacity: 1; transform: translateY(0); } }
 
@@ -185,7 +186,7 @@
 
 .of-dish__desc {
   @include dish-desc;
-  color: #555;
+  color: $color-black;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -200,36 +201,52 @@
   border-left: 1px solid transparent;
   transition: background .25s ease, padding .25s ease, border-color .25s ease;
 }
-
-/* Panneau vert (hover) */
+ /* ===== Panneau vert + rond blanc + coche ===== */
 .of-dish__check {
   display: grid;
   place-items: center;
-  width: $check-w;
-  height: $card-h;
-  background: $color-tertiary;
+  width: 100%;
+  height: 100%;          
+  background: $color-tertiary;  
   color: $color-white;
-  border-top-right-radius: $card-radius;
+  border-top-right-radius: $card-radius;   
   border-bottom-right-radius: $card-radius;
-  opacity: 0;
+  opacity: 0;                                   
   transition: opacity .2s ease;
+  position: relative;                          
 
-  i { transition: transform .35s ease; }
+  /* Petit cercle blanc (20×20) centré */
+  &::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: $color-white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Coche verte au-dessus du rond */
+  i {
+    position: relative;               /* passe au-dessus du ::before */
+    z-index: 1;
+    color: $color-tertiary;         
+    font-size: 14px;
+    transition: transform .35s ease;
+  }
 }
 
+/* Effets au survol de la carte */
 .of-dish:hover .of-dish__check { opacity: 1; }
 .of-dish:hover .of-dish__check i { transform: rotate(360deg); }
 .of-dish:hover .of-dish__price { padding-left: 12px; }
 .of-dish:hover .of-dish__content { padding-right: 4px; }
 
-/* CTA */
 .of-menu__cta {
-  display: grid;
-  place-items: center;
-  margin-top: 40px;
-}
-
-/* Responsive */
-@media (min-width: $bp-tablet) {
-  .of-menu { padding: 32px 24px 48px; }
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

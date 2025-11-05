@@ -78,7 +78,7 @@ h3 {
 
 /* ===== CONTENEUR ===== */
 .of-container {
-  width: min(100%, 1200px);
+  width: min(100%, 1055px);
   margin-inline: auto;
   padding-inline: 16px;
 }
@@ -164,6 +164,45 @@ html {
   flex: 0 0 22px;
 }
 
+/* ===== FOOTER — tablette et + ===== */
+@media (min-width: 1024px) {
+  .of-footer {
+    position: relative;
+    background: #353535;
+    color: #ffffff;
+    padding-block: 65px 30px; /* top 65px, bottom 30px */
+    padding-inline: 0;
+  }
+  /* Logo à gauche à 65px du bord gauche */
+  .of-footer__logo {
+    position: absolute;
+    right: 65px; /* ✅ distance du bord droit */
+  }
+  /* Liste des liens centrée horizontalement */
+  .of-footer__links {
+    max-width: none;
+    margin: 0 auto; /* ✅ centrée */
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    gap: 40px; /* espace entre les liens */
+    padding-right: 20%;
+  }
+  .of-footer__links a {
+    font-size: 16px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .of-footer__links i {
+    width: 22px;
+    flex: 0 0 22px;
+    font-size: 13px;
+  }
+}
 /* ===== HERO ===== */
 .of-hero {
   text-align: center;
@@ -199,7 +238,6 @@ html {
   /* ===== Carte ===== */
   /* ===== Pastille numérotée ===== */
   /* ===== Icône ===== */
-  /* Icône store déjà violette */
   /* ===== Texte ===== */
 }
 .of-steps__list {
@@ -265,10 +303,39 @@ html {
   color: #353535;
 }
 
+/* Ajustement global */
 .of-steps__item {
   width: min(100%, 335px);
 }
 
+/* ===== Fonctionnement — version flex ===== */
+.of-steps__list {
+  display: flex;
+  flex-direction: column; /* ✅ Mobile : en colonne */
+  align-items: center;
+  gap: 20px;
+}
+
+/* ===== Tablette et + ===== */
+@media (min-width: 768px) {
+  .of-steps {
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  /* Passe en ligne horizontale fluide */
+  .of-steps__list {
+    flex-direction: row; /* ✅ côte à côte */
+    justify-content: center;
+    align-items: stretch;
+    gap: 100px; /* espace horizontal entre les blocs */
+  }
+  /* Chaque bloc garde une taille cohérente */
+  .of-steps__item {
+    flex: 1 1 300px; /* s’étire légèrement sans casser */
+    max-width: 335px; /* ne dépasse jamais la taille maquette */
+  }
+}
 /* =========================
    PAGE MENU – La palette du goût
    ========================= */
@@ -338,11 +405,10 @@ html {
   margin: 0;
 }
 
-/* Cœur — scoped UNIQUEMENT au header du menu
-   (ne touche pas les cards de l’index) */
+/* Cœur  */
 .of-menu__head .of-like {
   position: absolute;
-  top: 8px;
+  top: 4px;
   right: 16px;
   width: 22px;
   height: 21px;
@@ -389,6 +455,7 @@ html {
    ========================= */
 .of-course {
   margin-top: 24px;
+  margin-bottom: 40px;
 }
 
 .of-course__title {
@@ -443,15 +510,15 @@ html {
 }
 
 .of-dish:nth-child(2) {
-  animation-delay: 0.15s;
+  animation-delay: 0.5s;
 }
 
 .of-dish:nth-child(3) {
-  animation-delay: 0.25s;
+  animation-delay: 1s;
 }
 
 .of-dish:nth-child(4) {
-  animation-delay: 0.35s;
+  animation-delay: 1.5s;
 }
 
 @keyframes dishIn {
@@ -483,7 +550,7 @@ html {
   font-weight: 300;
   font-size: 15.04px;
   line-height: 1.35;
-  color: #555;
+  color: #000000;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -504,23 +571,43 @@ html {
   transition: background 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
 }
 
-/* Panneau vert (hover) */
+/* ===== Panneau vert + rond blanc + coche ===== */
 .of-dish__check {
   display: grid;
   place-items: center;
-  width: 59px;
-  height: 69px;
+  width: 100%;
+  height: 100%;
   background: #99e2d0;
   color: #ffffff;
   border-top-right-radius: 15.04px;
   border-bottom-right-radius: 15.04px;
   opacity: 0;
   transition: opacity 0.2s ease;
+  position: relative;
+  /* Petit cercle blanc (20×20) centré */
+  /* Coche verte au-dessus du rond */
+}
+.of-dish__check::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .of-dish__check i {
+  position: relative; /* passe au-dessus du ::before */
+  z-index: 1;
+  color: #99e2d0;
+  font-size: 14px;
   transition: transform 0.35s ease;
 }
 
+/* Effets au survol de la carte */
 .of-dish:hover .of-dish__check {
   opacity: 1;
 }
@@ -537,19 +624,12 @@ html {
   padding-right: 4px;
 }
 
-/* CTA */
 .of-menu__cta {
-  display: grid;
-  place-items: center;
-  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-/* Responsive */
-@media (min-width: 768px) {
-  .of-menu {
-    padding: 32px 24px 48px;
-  }
-}
 /* ===== BOUTONS ===== */
 .of-btn {
   display: inline-flex;
@@ -801,4 +881,23 @@ html {
 
 .of-like:hover .of-like__empty {
   opacity: 0;
+}
+
+/* ===== Grille Restaurants – tablette et + ===== */
+@media (min-width: 768px) {
+  .of-restos {
+    margin: 60px auto 65px; /* centre la section */
+  }
+  .of-restos__cards {
+    /* 2 colonnes fixes de 490px, sans étirer les cartes */
+    grid-template-columns: repeat(2, 490px);
+    /* gaps responsives avec plafond demandé */
+    -moz-column-gap: clamp(24px, 8vw, 100px);
+    column-gap: clamp(24px, 8vw, 100px);
+    row-gap: clamp(18px, 6vw, 50px);
+    /* largeur max finale (2×490 + 100) et centrage */
+    max-width: 1080px;
+    margin-inline: auto;
+    justify-content: center; /* centre la grille si plus large */
+  }
 } /*# sourceMappingURL=main.css.map */
