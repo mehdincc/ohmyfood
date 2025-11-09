@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
 
-    <!-- Font Awesome Kit -->
+    <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/f87d390902.js"
       crossorigin="anonymous"
@@ -22,8 +22,19 @@
     <!-- Ton CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
+
   <body class="of-app">
-    <!-- Header -->
+    <!-- Loader -->
+    <div class="of-loader" role="status" aria-live="polite">
+      <div class="of-loader__box">
+        <div class="of-loader__logo">Ohmyfood</div>
+        <div class="of-loader__spinner" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
     <header class="of-header">
       <div class="of-header__brand">
         <span class="of-header__logo">ohmyfood</span>
@@ -36,8 +47,10 @@
         <input class="location__input" placeholder="Paris, Belleville" />
       </form>
     </header>
+
+    <!-- MAIN -->
     <main>
-      <!-- Hero -->
+      <!-- HERO -->
       <section class="of-hero">
         <h1 class="of-hero__title">Réservez le menu qui vous convient</h1>
         <p class="of-hero__subtitle">
@@ -48,44 +61,44 @@
         </a>
       </section>
 
-      <!-- Étapes (fonctionnement) -->
+      <!-- FONCTIONNEMENT -->
       <section class="of-steps">
-        <h2 id="steps-title">Fonctionnement</h2>
+        <h2>Fonctionnement</h2>
         <ol class="of-steps__list">
           <li class="of-steps__item">
-            <span class="of-steps__icon"
-              ><i class="fa-solid fa-mobile-screen"></i
-            ></span>
+            <span class="of-steps__icon">
+              <i class="fa-solid fa-mobile-screen"></i>
+            </span>
             <span class="of-steps__text">Choisissez un restaurant</span>
           </li>
           <li class="of-steps__item">
-            <span class="of-steps__icon"
-              ><i class="fa-solid fa-list-ul"></i
-            ></span>
+            <span class="of-steps__icon">
+              <i class="fa-solid fa-list-ul"></i>
+            </span>
             <span class="of-steps__text">Composez votre menu</span>
           </li>
           <li class="of-steps__item">
-            <span class="of-steps__icon"
-              ><i class="fa-solid fa-store"></i
-            ></span>
+            <span class="of-steps__icon">
+              <i class="fa-solid fa-store"></i>
+            </span>
             <span class="of-steps__text">Dégustez au restaurant</span>
           </li>
         </ol>
       </section>
 
-      <!-- SECTION RESTAURANTS -->
+      <!-- RESTAURANTS -->
       <section id="restaurants" class="of-restos">
         <h2>Restaurants</h2>
-
         <div class="of-restos__cards">
           <!-- La palette du goût -->
           <article class="of-card">
-            <a class="of-card__link" href="#">
+            <a class="of-card__link" href="restaurants/palette-du-gout.html">
               <div class="of-card__img-wrapper">
                 <img
                   class="of-card__img"
                   src="assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
                   alt="La palette du goût"
+                  loading="lazy"
                 />
                 <span class="of-card__badge">Nouveau</span>
               </div>
@@ -94,18 +107,13 @@
                 <p class="of-card__location">Ménilmontant</p>
               </div>
             </a>
-
-            <!-- Bouton cœur -->
             <button
               class="of-like"
               type="button"
               aria-label="Ajouter aux favoris"
             >
-              <i
-                class="fa-regular fa-heart of-like__empty"
-                aria-hidden="true"
-              ></i>
-              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
+              <i class="fa-regular fa-heart of-like__empty"></i>
+              <i class="fa-solid fa-heart of-like__full"></i>
             </button>
           </article>
 
@@ -117,6 +125,7 @@
                   class="of-card__img"
                   src="assets/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg"
                   alt="La note enchantée"
+                  loading="lazy"
                 />
                 <span class="of-card__badge">Nouveau</span>
               </div>
@@ -125,17 +134,13 @@
                 <p class="of-card__location">Charonne</p>
               </div>
             </a>
-
             <button
               class="of-like"
               type="button"
               aria-label="Ajouter aux favoris"
             >
-              <i
-                class="fa-regular fa-heart of-like__empty"
-                aria-hidden="true"
-              ></i>
-              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
+              <i class="fa-regular fa-heart of-like__empty"></i>
+              <i class="fa-solid fa-heart of-like__full"></i>
             </button>
           </article>
 
@@ -147,6 +152,7 @@
                   class="of-card__img"
                   src="assets/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
                   alt="À la française"
+                  loading="lazy"
                 />
               </div>
               <div class="of-card__content">
@@ -154,17 +160,13 @@
                 <p class="of-card__location">Cité Rouge</p>
               </div>
             </a>
-
             <button
               class="of-like"
               type="button"
               aria-label="Ajouter aux favoris"
             >
-              <i
-                class="fa-regular fa-heart of-like__empty"
-                aria-hidden="true"
-              ></i>
-              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
+              <i class="fa-regular fa-heart of-like__empty"></i>
+              <i class="fa-solid fa-heart of-like__full"></i>
             </button>
           </article>
 
@@ -176,6 +178,7 @@
                   class="of-card__img"
                   src="assets/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
                   alt="Le délice des sens"
+                  loading="lazy"
                 />
               </div>
               <div class="of-card__content">
@@ -183,28 +186,26 @@
                 <p class="of-card__location">Folie-Méricourt</p>
               </div>
             </a>
-
             <button
               class="of-like"
               type="button"
               aria-label="Ajouter aux favoris"
             >
-              <i
-                class="fa-regular fa-heart of-like__empty"
-                aria-hidden="true"
-              ></i>
-              <i class="fa-solid fa-heart of-like__full" aria-hidden="true"></i>
+              <i class="fa-regular fa-heart of-like__empty"></i>
+              <i class="fa-solid fa-heart of-like__full"></i>
             </button>
           </article>
         </div>
       </section>
     </main>
+
+    <!-- FOOTER -->
     <footer class="of-footer">
       <span class="of-footer__logo">ohmyfood</span>
       <ul class="of-footer__links">
         <li>
           <a href="#">
-            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+            <i class="fa-solid fa-utensils"></i>
             Proposer un restaurant
           </a>
         </li>

@@ -17,29 +17,58 @@ $color-light:   #F6F6F6;
 $color-citybar: #EAEAEA;
 $color-footer:  #353535;
 
-$gradient-primary: linear-gradient(193.33deg,#9356DC -11.44%,#FF79DA 123.93%);
+$gradient-primary: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
 
 $font-title: "Shrikhand", cursive;
 $font-main:  "Roboto", sans-serif;
 
+/* ===== BREAKPOINTS ===== */
+$bp-mobile:  480px;
+$bp-tablet:  768px;
+$bp-desktop: 1024px;
+
 /* ===== RESET ===== */
-html { box-sizing: border-box; }
-*, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
 
-body { overflow-x: hidden; }
-img { display: block; max-width: 100%; height: auto; }
-a { text-decoration: none; color: inherit; }
-button { border: 0; background: none; cursor: pointer; }
-
-/* ===== TYPO ===== */
 body {
+  overflow-x: hidden;
   font-family: $font-main;
   color: $color-text;
   background: $color-light;
 }
 
-h1, h2 { font: 700 24px/1 $font-main; }
-h2 { margin-bottom: 25px; }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* ===== TYPO ===== */
+h1, h2 {
+  font: 700 24px/1 $font-main;
+}
+
+h2 {
+  margin-bottom: 25px;
+}
 
 h3 {
   font-family: $font-main;
@@ -48,20 +77,44 @@ h3 {
   color: $color-black;
 }
 
+/* =========================
+   TITRES DE SECTION ALIGNÉS (Tablette et +)
+   ========================= */
+@media (min-width: $bp-tablet) {
+  .of-steps h2,
+  .of-restos h2 {
+    max-width: 1080px;       
+    margin-inline: auto;     
+    text-align: left;        
+  }
+}
+
 /* ===== LOGOS ===== */
 .of-header__logo,
-.of-logo-footer { font-family: $font-title; font-weight: 400; }
+.of-logo-footer {
+  font-family: $font-title;
+  font-weight: 400;
+}
 
-.of-header__logo { font-size: 30px; text-align: center; }
-.of-logo-footer  { font-size: 18px; }
+.of-header__logo {
+  font-size: 30px;
+  text-align: center;
+}
+
+.of-logo-footer {
+  font-size: 18px;
+}
 
 /* ===== CONTENEUR ===== */
 .of-container {
-  width: min(100%, 1055px);
+  width: 100%;
   margin-inline: auto;
   padding-inline: 16px;
 }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+}
 
 /* =========================
    MIXINS GLOBAUX
@@ -70,18 +123,13 @@ html { scroll-behavior: smooth; }
   transition: $props $duration $ease;
 }
 
-/* ===== BREAKPOINTS ===== */
-$bp-mobile:  768px;
-$bp-tablet:  768px;
-$bp-desktop: 1024px;
-
 /* =========================
    VARIANTES SPÉCIFIQUES MENU
    ========================= */
 
 /* Cartes plats */
 $card-radius: 15.04px;
-$card-h:      69px;
+$card-h:      72px;
 $check-w:     59px;
 $card-shadow: 0px 4.01px 15.04px #0000001A;
 
@@ -93,6 +141,25 @@ $card-shadow: 0px 4.01px 15.04px #0000001A;
   line-height: 1;
 }
 
-@mixin dish-name  { font-family: $font-main; font-weight: 500; font-size: 18px;    line-height: 1;    }
-@mixin dish-desc  { font-family: $font-main; font-weight: 300; font-size: 15.04px; line-height: 1.35; }
-@mixin dish-price { font-family: $font-main; font-weight: 700; font-size: 15.04px; line-height: 1; text-align: center; color: $color-black; }
+@mixin dish-name {
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+}
+
+@mixin dish-desc {
+  font-family: $font-main;
+  font-weight: 300;
+  font-size: 15.04px;
+  line-height: 1.35;
+}
+
+@mixin dish-price {
+  font-family: $font-main;
+  font-weight: 700;
+  font-size: 15.04px;
+  line-height: 1;
+  text-align: center;
+  color: $color-black;
+}

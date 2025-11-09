@@ -1,127 +1,104 @@
 @use "../base/global" as *;
-@use "sass:color";
 
 /* =========================
    STEPS (Fonctionnement)
    ========================= */
 .of-steps {
   background: $color-white;
-  padding-block: 40px 65px;   // marges haut / bas
-  padding-inline: 20px;       // marges gauche / droite
+  padding: 40px 0 65px; /* espace haut / bas */
 
-  /* ===== Liste ===== */
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: clamp(12px, 3vw, 20px);
-    counter-reset: step;
+  /* Titre et liste alignés comme la section Restaurants */
+  > h2,
+  > .of-steps__list {
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
   }
 
-  /* ===== Carte ===== */
-  &__item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    background: $color-light;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px #00000026;
-
-    width: min(100%, 335px);
-    margin-inline: auto;
-    min-height: 72px;
-    padding-inline: 30px;
-
-    cursor: default;           
-    transition:
-      box-shadow .22s ease,
-      transform .18s ease,
-      background-color .22s ease;
-
-    /* Hover doux */
-    &:hover {
-      transform: translateX(2px);
-      box-shadow: 0 6px 18px #00000033;
-      background-color: color.adjust($color-light, $lightness: 2%);
-    }
-
-    /* Icône colorée au survol */
-    &:hover .of-steps__icon { color: $color-primary; }
-  }
-
-  /* ===== Pastille numérotée ===== */
-  &__item::before {
-    content: counter(step);
-    counter-increment: step;
-
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-start: -12px;
-    transform: translateY(-50%);
-
-    display: grid;
-    place-items: center;
-
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: $color-primary;
-    color: $color-white;
-    font: 500 13px/1 $font-main;
-  }
-
-  /* ===== Icône ===== */
-  &__icon {
-    font-size: 18px;
-    color: $color-muted;
-    transition: color .25s ease;
-  }
-
-  &__icon.fa-store {
-    color: $color-primary;
-  }
-
-  /* ===== Texte ===== */
-  &__text {
-    font: 500 16px/1 $font-main;
-    color: $color-text;
+  > h2 {
+    text-align: left;
+    margin-bottom: 25px;
   }
 }
 
-/* Ajustement global */
-.of-steps__item {
-  width: min(100%, 335px);
-}
-
-/* ===== Fonctionnement — version flex ===== */
+/* Liste */
 .of-steps__list {
+  list-style: none;
+  padding: 0;
   display: flex;
-  flex-direction: column;   /* ✅ Mobile : en colonne */
+  flex-direction: column; /* mobile = en colonne */
+  gap: 20px;              /* ✅ espace entre les cartes */
+  counter-reset: step;
+}
+
+/* Carte */
+.of-steps__item {
+  position: relative;
+  display: flex;
   align-items: center;
   gap: 20px;
+
+  width: 100%;
+  min-height: 72px;
+  padding: 18px 28px 18px 55px; /* marge interne gauche plus large pour la pastille */
+
+  background: $color-light;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px #00000026;
+  transition: box-shadow .22s ease, transform .18s ease, background-color .22s ease;
+
+  &:hover {
+    transform: translateX(2px);
+    box-shadow: 0 6px 18px #00000033;
+    background-color: rgba(246,246,246,.98);
+  }
 }
+
+/* Pastille numérotée */
+.of-steps__item::before {
+  content: counter(step);
+  counter-increment: step;
+
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: $color-primary;
+  color: $color-white;
+  font: 500 13px/1 $font-main;
+}
+
+/* Icône / texte */
+.of-steps__icon {
+  font-size: 18px;
+  color: $color-muted;
+  transition: color .25s ease;
+}
+.of-steps__item:hover .of-steps__icon { color: $color-primary; }
+.of-steps__icon.fa-store { color: $color-primary; }
+
+.of-steps__text {
+  font: 500 16px/1 $font-main;
+  color: $color-text;
+}
+
 /* ===== Tablette et + ===== */
 @media (min-width: $bp-tablet) {
-  .of-steps {
-    max-width: 1080px;
-    margin-inline: auto;
-    padding-inline: 20px;
-  }
-
-  /* Passe en ligne horizontale fluide */
   .of-steps__list {
-    flex-direction: row;      /* ✅ côte à côte */
+    flex-direction: row;   /* côte à côte */
     justify-content: center;
     align-items: stretch;
-    gap: 35px;               /* espace horizontal entre les blocs */
+    gap: 35px;             /* ✅ espace horizontal fixe */
   }
 
-  /* Chaque bloc garde une taille cohérente */
   .of-steps__item {
-    flex: 1 1 300px;          /* s’étire légèrement sans casser */
-    max-width: 335px;         /* ne dépasse jamais la taille maquette */
+    flex: 1 1 0;
+    max-width: none;
   }
 }

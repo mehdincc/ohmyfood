@@ -3,13 +3,13 @@
 /* =========================
    PAGE MENU – La palette du goût
    ========================= */
+body.is-menu { background: $color-white; }
 
 /* Header spécifique (flèche retour) */
 .is-menu .of-header__brand { position: relative; }
-
 .is-menu .of-back {
   position: absolute;
-  left: 20px;                /* ~17–20px maquette */
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   color: $color-text;
@@ -24,12 +24,7 @@
 /* Bannière restaurant */
 .of-menu-banner {
   height: 230px;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
 }
 
 /* Feuille du menu (débord arrondi) */
@@ -44,209 +39,152 @@
 /* =========================
    Titre + Cœur (PAGE MENU)
    ========================= */
-
-/* Conteneur : centre le titre et réserve la place du cœur */
-.of-menu__head {
-  position: relative;                 /* ancre du cœur */
+/* --- Mobile par défaut --- */
+.of-menu__head{
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;            /* centre le <h1> */
-  margin-bottom: 10px;
-  padding-right: 48px;                /* évite chevauchement du cœur */
+  justify-content: space-between;
 }
 
-/* Titre */
-.of-menu__title {
+.of-menu__title{
   @include menu-title;
   color: $color-black;
-  text-align: center;
   margin: 0;
+  text-align: center;
+  /* Empêche le chevauchement avec le cœur quand l’écran est très étroit */
+  max-width: calc(100% - 56px);
 }
 
-/* Cœur  */
-.of-menu__head .of-like {
+/* Cœur local en mobile : collé à droite dans le header */
+.of-menu__head .of-like{
   position: absolute;
   top: 4px;
   right: 16px;
-  width: 22px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
   display: grid;
   place-items: center;
   background: transparent;
   border: 0;
   cursor: pointer;
 
-  &:focus-visible {
-    outline: 2px solid rgba($color-primary, .45);
-    outline-offset: 2px;
-    border-radius: 4px;
+  /* On neutralise tous héritages possibles du .of-like global */
+  left: auto; bottom: auto;
+}
+.of-menu__head .of-like .of-like__empty,
+.of-menu__head .of-like .of-like__full{
+  font-size: 22px;
+  line-height: 1;
+  transition: opacity .28s ease, transform .18s ease;
+  pointer-events: none;
+}
+.of-menu__head .of-like .of-like__empty{ color: $color-black; opacity: 1; }
+.of-menu__head .of-like .of-like__full{
+  opacity: 0;
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.of-menu__head .of-like:hover .of-like__full{ opacity: 1; }
+.of-menu__head .of-like:hover .of-like__empty{ opacity: 0; }
+
+/* --- Tablette et + : titre centré + cœur à sa droite, gap 20px --- */
+@media (min-width: $bp-tablet){
+  .of-menu{
+    width: min(100%, 1055px);
+    margin: -60px auto 0;
+    padding: 30px 32px 40px;
   }
 
-  .of-like__empty,
-  .of-like__full {
-    position: absolute;
-    inset: 0;
-    font-size: 22px;                  /* 22 × 21 (maquette) */
-    line-height: 1;
-    transition: opacity .28s ease, transform .18s ease;
-    pointer-events: none;
+  .of-menu__head{
+    justify-content: center;
+  }
+  .of-menu__head .of-like {
+    width: 27%;
   }
 
-  .of-like__empty { color: $color-black; opacity: 1; }
-  .of-like__full  {
-    opacity: 0;
-    background: $gradient-primary;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  &:hover .of-like__full { opacity: 1; }
-  &:hover .of-like__empty { opacity: 0; }
+  .of-menu__title{ text-align: center; max-width: none; }
 }
 
 /* =========================
    Sections (Entrées / Plats / Desserts)
    ========================= */
+.of-course{ margin-top: 24px; margin-bottom: 40px; }
 
-.of-course { 
-  margin-top: 24px;
-  margin-bottom: 40px; }
-
-.of-course__title {
-  font-family: $font-main;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: $color-black;
-  margin: 0;
+.of-course__title{
+  font-family: $font-main; font-weight: 300; font-size: 16px; line-height: 1;
+  text-transform: uppercase; color: $color-black; margin: 0;
 }
-
-.of-course__bar {
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: $color-tertiary;
-  border-radius: 3px;
-  margin-top: 10px;
-  margin-bottom: 12px;
+.of-course__bar{
+  display: block; width: 40px; height: 3px; background: $color-tertiary;
+  border-radius: 3px; margin-top: 10px; margin-bottom: 12px;
 }
 
 /* Liste des plats */
-.of-dishes {
-  list-style: none;
-  display: grid;
-  gap: 12px;
-}
+.of-dishes{ list-style: none; display: grid; gap: 12px; }
 
 /* Carte plat */
-.of-dish {
+.of-dish{
   display: grid;
-  grid-template-columns: 1fr auto 0;       /* texte | prix | check (masqué) */
+  grid-template-columns: 1fr auto 0; /* texte | prix | check (masqué) */
   align-items: stretch;
+  max-width: 634px;
   min-height: $card-h;
   background: $color-white;
   border-radius: $card-radius;
   box-shadow: $card-shadow;
   overflow: hidden;
-
-  opacity: 0;
-  transform: translateY(8px);
+  opacity: 0; transform: translateY(8px);
   animation: dishIn .45s ease forwards;
   transition: grid-template-columns .25s ease, transform .18s ease;
 
-  &:hover {
-    grid-template-columns: 1fr auto $check-w; /* 59px colonne check */
+  &:hover{
+    grid-template-columns: 1fr auto $check-w;
     transform: translateY(0) scale(1.01);
   }
 }
+.of-dish:nth-child(1){ animation-delay: .05s; }
+.of-dish:nth-child(2){ animation-delay: .5s; }
+.of-dish:nth-child(3){ animation-delay: 1s; }
+.of-dish:nth-child(4){ animation-delay: 1.5s; }
+@keyframes dishIn{ to{ opacity:1; transform:translateY(0);} }
 
-.of-dish:nth-child(1) { animation-delay: .05s; }
-.of-dish:nth-child(2) { animation-delay: .5s; }
-.of-dish:nth-child(3) { animation-delay: 1s; }
-.of-dish:nth-child(4) { animation-delay: 1.5s; }
-
-@keyframes dishIn { to { opacity: 1; transform: translateY(0); } }
-
-/* Contenu du plat */
-.of-dish__content {
-  padding: 15px 7px 15px 15px;
-  min-width: 0;
-}
-
-.of-dish__name {
-  @include dish-name;
-  color: $color-black;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 5px;
-}
-
-.of-dish__desc {
-  @include dish-desc;
-  color: $color-black;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Prix */
-.of-dish__price {
-  align-self: end;
-  padding: 0 15px 15px 0;
-  @include dish-price;
-  background: transparent;
-  border-left: 1px solid transparent;
+.of-dish__content{ padding: 15px 7px 15px 15px; min-width: 0; }
+.of-dish__name{ @include dish-name; color:$color-black; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:5px; }
+.of-dish__desc{ @include dish-desc; color:$color-black; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.of-dish__price{
+  align-self:end; padding:0 15px 15px 0; @include dish-price;
+  background:transparent; border-left:1px solid transparent;
   transition: background .25s ease, padding .25s ease, border-color .25s ease;
 }
- /* ===== Panneau vert + rond blanc + coche ===== */
-.of-dish__check {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;          
-  background: $color-tertiary;  
-  color: $color-white;
-  border-top-right-radius: $card-radius;   
-  border-bottom-right-radius: $card-radius;
-  opacity: 0;                                   
-  transition: opacity .2s ease;
-  position: relative;                          
 
-  /* Petit cercle blanc (20×20) centré */
-  &::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: $color-white;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,.12);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Panneau vert + coche */
+.of-dish__check{
+  display:grid; place-items:center; width:100%; height:100%;
+  background:$color-tertiary; color:$color-white;
+  border-top-right-radius:$card-radius; border-bottom-right-radius:$card-radius;
+  opacity:0; transition:opacity .2s ease; position:relative;
+  &::before{
+    content:""; position:absolute; width:20px; height:20px; background:$color-white;
+    border-radius:50%; box-shadow:0 2px 4px rgba(0,0,0,.12);
+    top:50%; left:50%; transform:translate(-50%,-50%);
   }
-
-  /* Coche verte au-dessus du rond */
-  i {
-    position: relative;               /* passe au-dessus du ::before */
-    z-index: 1;
-    color: $color-tertiary;         
-    font-size: 14px;
-    transition: transform .35s ease;
-  }
+  i{ position:relative; z-index:1; color:$color-tertiary; font-size:14px; transition:transform .35s ease; }
 }
+.of-dish:hover .of-dish__check{ opacity:1; }
+.of-dish:hover .of-dish__price{ padding-left:12px; }
+.of-dish:hover .of-dish__content{ padding-right:4px; }
 
-/* Effets au survol de la carte */
-.of-dish:hover .of-dish__check { opacity: 1; }
-.of-dish:hover .of-dish__check i { transform: rotate(360deg); }
-.of-dish:hover .of-dish__price { padding-left: 12px; }
-.of-dish:hover .of-dish__content { padding-right: 4px; }
-
+/* Colonne centrée tablette+ */
+@media (min-width: $bp-tablet){
+  .of-course{ max-width:634px; margin:24px auto 40px; }
+  .of-course__bar{ margin-left:0; }
+  .of-dishes{ max-width:634px; margin:0 auto; }
+  .of-dish{ width:100%; max-width:634px; }
+}
 .of-menu__cta {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

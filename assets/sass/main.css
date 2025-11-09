@@ -3,6 +3,7 @@
    GLOBAL STYLES
    ========================= */
 /* ===== VARIABLES ===== */
+/* ===== BREAKPOINTS ===== */
 /* ===== RESET ===== */
 html {
   box-sizing: border-box;
@@ -18,6 +19,9 @@ html {
 
 body {
   overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+  color: #353535;
+  background: #f6f6f6;
 }
 
 img {
@@ -38,12 +42,6 @@ button {
 }
 
 /* ===== TYPO ===== */
-body {
-  font-family: "Roboto", sans-serif;
-  color: #353535;
-  background: #f6f6f6;
-}
-
 h1,
 h2 {
   font: 700 24px/1 "Roboto", sans-serif;
@@ -60,6 +58,17 @@ h3 {
   color: #000000;
 }
 
+/* =========================
+   TITRES DE SECTION ALIGNÉS (Tablette et +)
+   ========================= */
+@media (min-width: 768px) {
+  .of-steps h2,
+  .of-restos h2 {
+    max-width: 1080px;
+    margin-inline: auto;
+    text-align: left;
+  }
+}
 /* ===== LOGOS ===== */
 .of-header__logo,
 .of-logo-footer {
@@ -78,7 +87,7 @@ h3 {
 
 /* ===== CONTENEUR ===== */
 .of-container {
-  width: min(100%, 1055px);
+  width: 100%;
   margin-inline: auto;
   padding-inline: 16px;
 }
@@ -90,7 +99,6 @@ html {
 /* =========================
    MIXINS GLOBAUX
    ========================= */
-/* ===== BREAKPOINTS ===== */
 /* =========================
    VARIANTES SPÉCIFIQUES MENU
    ========================= */
@@ -232,54 +240,58 @@ html {
    ========================= */
 .of-steps {
   background: #ffffff;
-  padding-block: 40px 65px;
-  padding-inline: 20px;
-  /* ===== Liste ===== */
-  /* ===== Carte ===== */
-  /* ===== Pastille numérotée ===== */
-  /* ===== Icône ===== */
-  /* ===== Texte ===== */
+  padding: 40px 0 65px; /* espace haut / bas */
+  /* Titre et liste alignés comme la section Restaurants */
 }
+.of-steps > h2,
+.of-steps > .of-steps__list {
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto;
+}
+.of-steps > h2 {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+/* Liste */
 .of-steps__list {
   list-style: none;
-  margin: 0;
   padding: 0;
-  display: grid;
-  gap: clamp(12px, 3vw, 20px);
+  display: flex;
+  flex-direction: column; /* mobile = en colonne */
+  gap: 20px; /* ✅ espace entre les cartes */
   counter-reset: step;
 }
+
+/* Carte */
 .of-steps__item {
   position: relative;
   display: flex;
   align-items: center;
   gap: 20px;
+  width: 100%;
+  min-height: 72px;
+  padding: 18px 28px 18px 55px; /* marge interne gauche plus large pour la pastille */
   background: #f6f6f6;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
-  width: min(100%, 335px);
-  margin-inline: auto;
-  min-height: 72px;
-  padding-inline: 30px;
-  cursor: default;
   transition: box-shadow 0.22s ease, transform 0.18s ease,
     background-color 0.22s ease;
-  /* Hover doux */
-  /* Icône colorée au survol */
 }
 .of-steps__item:hover {
   transform: translateX(2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  background-color: rgb(251.1, 251.1, 251.1);
+  background-color: rgba(246, 246, 246, 0.98);
 }
-.of-steps__item:hover .of-steps__icon {
-  color: #9356dc;
-}
+
+/* Pastille numérotée */
 .of-steps__item::before {
   content: counter(step);
   counter-increment: step;
   position: absolute;
-  inset-block-start: 50%;
-  inset-inline-start: -12px;
+  top: 50%;
+  left: 18px;
   transform: translateY(-50%);
   display: grid;
   place-items: center;
@@ -290,55 +302,47 @@ html {
   color: #ffffff;
   font: 500 13px/1 "Roboto", sans-serif;
 }
+
+/* Icône / texte */
 .of-steps__icon {
   font-size: 18px;
   color: #7e7e7e;
   transition: color 0.25s ease;
 }
+
+.of-steps__item:hover .of-steps__icon {
+  color: #9356dc;
+}
+
 .of-steps__icon.fa-store {
   color: #9356dc;
 }
+
 .of-steps__text {
   font: 500 16px/1 "Roboto", sans-serif;
   color: #353535;
 }
 
-/* Ajustement global */
-.of-steps__item {
-  width: min(100%, 335px);
-}
-
-/* ===== Fonctionnement — version flex ===== */
-.of-steps__list {
-  display: flex;
-  flex-direction: column; /* ✅ Mobile : en colonne */
-  align-items: center;
-  gap: 20px;
-}
-
 /* ===== Tablette et + ===== */
 @media (min-width: 768px) {
-  .of-steps {
-    max-width: 1080px;
-    margin-inline: auto;
-    padding-inline: 20px;
-  }
-  /* Passe en ligne horizontale fluide */
   .of-steps__list {
-    flex-direction: row; /* ✅ côte à côte */
+    flex-direction: row; /* côte à côte */
     justify-content: center;
     align-items: stretch;
-    gap: 35px; /* espace horizontal entre les blocs */
+    gap: 35px; /* ✅ espace horizontal fixe */
   }
-  /* Chaque bloc garde une taille cohérente */
   .of-steps__item {
-    flex: 1 1 300px; /* s’étire légèrement sans casser */
-    max-width: 335px; /* ne dépasse jamais la taille maquette */
+    flex: 1 1 0;
+    max-width: none;
   }
 }
 /* =========================
    PAGE MENU – La palette du goût
    ========================= */
+body.is-menu {
+  background: #ffffff;
+}
+
 /* Header spécifique (flèche retour) */
 .is-menu .of-header__brand {
   position: relative;
@@ -346,7 +350,7 @@ html {
 
 .is-menu .of-back {
   position: absolute;
-  left: 20px; /* ~17–20px maquette */
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   color: #353535;
@@ -384,58 +388,55 @@ html {
 /* =========================
    Titre + Cœur (PAGE MENU)
    ========================= */
-/* Conteneur : centre le titre et réserve la place du cœur */
+/* --- Mobile par défaut --- */
 .of-menu__head {
-  position: relative; /* ancre du cœur */
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center; /* centre le <h1> */
-  margin-bottom: 10px;
-  padding-right: 48px; /* évite chevauchement du cœur */
+  justify-content: space-between;
 }
 
-/* Titre */
 .of-menu__title {
   font-family: "Shrikhand", cursive;
   font-weight: 400;
   font-size: 28px;
   line-height: 1;
   color: #000000;
-  text-align: center;
   margin: 0;
+  text-align: center;
+  /* Empêche le chevauchement avec le cœur quand l’écran est très étroit */
+  max-width: calc(100% - 56px);
 }
 
-/* Cœur  */
+/* Cœur local en mobile : collé à droite dans le header */
 .of-menu__head .of-like {
   position: absolute;
   top: 4px;
   right: 16px;
-  width: 22px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
   display: grid;
   place-items: center;
   background: transparent;
   border: 0;
   cursor: pointer;
+  /* On neutralise tous héritages possibles du .of-like global */
+  left: auto;
+  bottom: auto;
 }
-.of-menu__head .of-like:focus-visible {
-  outline: 2px solid rgba(147, 86, 220, 0.45);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
+
 .of-menu__head .of-like .of-like__empty,
 .of-menu__head .of-like .of-like__full {
-  position: absolute;
-  inset: 0;
-  font-size: 22px; /* 22 × 21 (maquette) */
+  font-size: 22px;
   line-height: 1;
   transition: opacity 0.28s ease, transform 0.18s ease;
   pointer-events: none;
 }
+
 .of-menu__head .of-like .of-like__empty {
   color: #000000;
   opacity: 1;
 }
+
 .of-menu__head .of-like .of-like__full {
   opacity: 0;
   background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
@@ -443,13 +444,33 @@ html {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .of-menu__head .of-like:hover .of-like__full {
   opacity: 1;
 }
+
 .of-menu__head .of-like:hover .of-like__empty {
   opacity: 0;
 }
 
+/* --- Tablette et + : titre centré + cœur à sa droite, gap 20px --- */
+@media (min-width: 768px) {
+  .of-menu {
+    width: min(100%, 1055px);
+    margin: -60px auto 0;
+    padding: 30px 32px 40px;
+  }
+  .of-menu__head {
+    justify-content: center;
+  }
+  .of-menu__head .of-like {
+    width: 27%;
+  }
+  .of-menu__title {
+    text-align: center;
+    max-width: none;
+  }
+}
 /* =========================
    Sections (Entrées / Plats / Desserts)
    ========================= */
@@ -490,7 +511,8 @@ html {
   display: grid;
   grid-template-columns: 1fr auto 0; /* texte | prix | check (masqué) */
   align-items: stretch;
-  min-height: 69px;
+  max-width: 634px;
+  min-height: 72px;
   background: #ffffff;
   border-radius: 15.04px;
   box-shadow: 0px 4.01px 15.04px rgba(0, 0, 0, 0.1019607843);
@@ -501,7 +523,7 @@ html {
   transition: grid-template-columns 0.25s ease, transform 0.18s ease;
 }
 .of-dish:hover {
-  grid-template-columns: 1fr auto 59px; /* 59px colonne check */
+  grid-template-columns: 1fr auto 59px;
   transform: translateY(0) scale(1.01);
 }
 
@@ -527,7 +549,6 @@ html {
     transform: translateY(0);
   }
 }
-/* Contenu du plat */
 .of-dish__content {
   padding: 15px 7px 15px 15px;
   min-width: 0;
@@ -556,7 +577,6 @@ html {
   text-overflow: ellipsis;
 }
 
-/* Prix */
 .of-dish__price {
   align-self: end;
   padding: 0 15px 15px 0;
@@ -571,7 +591,7 @@ html {
   transition: background 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
 }
 
-/* ===== Panneau vert + rond blanc + coche ===== */
+/* Panneau vert + coche */
 .of-dish__check {
   display: grid;
   place-items: center;
@@ -584,8 +604,6 @@ html {
   opacity: 0;
   transition: opacity 0.2s ease;
   position: relative;
-  /* Petit cercle blanc (20×20) centré */
-  /* Coche verte au-dessus du rond */
 }
 .of-dish__check::before {
   content: "";
@@ -600,20 +618,15 @@ html {
   transform: translate(-50%, -50%);
 }
 .of-dish__check i {
-  position: relative; /* passe au-dessus du ::before */
+  position: relative;
   z-index: 1;
   color: #99e2d0;
   font-size: 14px;
   transition: transform 0.35s ease;
 }
 
-/* Effets au survol de la carte */
 .of-dish:hover .of-dish__check {
   opacity: 1;
-}
-
-.of-dish:hover .of-dish__check i {
-  transform: rotate(360deg);
 }
 
 .of-dish:hover .of-dish__price {
@@ -624,6 +637,24 @@ html {
   padding-right: 4px;
 }
 
+/* Colonne centrée tablette+ */
+@media (min-width: 768px) {
+  .of-course {
+    max-width: 634px;
+    margin: 24px auto 40px;
+  }
+  .of-course__bar {
+    margin-left: 0;
+  }
+  .of-dishes {
+    max-width: 634px;
+    margin: 0 auto;
+  }
+  .of-dish {
+    width: 100%;
+    max-width: 634px;
+  }
+}
 .of-menu__cta {
   display: flex;
   align-items: center;
@@ -684,7 +715,7 @@ html {
 .of-card {
   position: relative;
   display: block;
-  width: min(100%, 490px);
+  width: 100%;
   height: 251px;
   border-radius: 15px;
   overflow: hidden;
@@ -740,82 +771,7 @@ html {
   color: #000000;
 }
 
-/* ===== SECTION Restaurants ===== */
-.of-restos {
-  margin: 60px 20px 65px 20px;
-}
-
-.of-restos h2 {
-  margin-bottom: 16px;
-}
-
-.of-restos__cards {
-  display: grid;
-  gap: 18px;
-}
-
-/* ===== CARTE RESTAURANT ===== */
-.of-card {
-  position: relative;
-  display: block;
-  width: min(100%, 490px);
-  height: 251px;
-  border-radius: 15px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
-  transition: transform 0.3s ease;
-}
-
-.of-card:hover {
-  transform: scale(1.02);
-}
-
-/* Image */
-.of-card__img-wrapper {
-  height: 175px;
-  overflow: hidden;
-}
-
-.of-card__img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
-/* Badge "Nouveau" */
-.of-card__badge {
-  position: absolute;
-  top: 13px;
-  right: 12px;
-  width: 80px;
-  height: 29px;
-  display: grid;
-  place-items: center;
-  background: #99e2d0;
-  color: #008766;
-  font: 500 14px "Roboto", sans-serif;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1490196078);
-}
-
-/* Texte */
-.of-card__content {
-  height: 76px;
-  padding: 15px 25px 20px 15px;
-}
-
-.of-card__title {
-  margin-bottom: 3px;
-}
-
-.of-card__location {
-  font: 300 17px "Roboto", sans-serif;
-  color: #000000;
-}
-
-/* --- Coeur : remplissage UNIQUEMENT au survol du bouton --- */
+/* --- Coeur --- */
 .of-like {
   position: absolute;
   right: 16px;
@@ -827,7 +783,6 @@ html {
   border: 0;
   background: transparent;
   cursor: pointer;
-  /* petit feedback au survol du bouton */
 }
 .of-like:hover .of-like__empty,
 .of-like:hover .of-like__full {
@@ -839,7 +794,6 @@ html {
   border-radius: 4px;
 }
 
-/* Deux icônes superposées */
 .of-like__empty,
 .of-like__full {
   position: absolute;
@@ -850,13 +804,11 @@ html {
   pointer-events: none;
 }
 
-/* vide par défaut */
 .of-like__empty {
   color: #101010;
   opacity: 1;
 }
 
-/* plein caché par défaut (dégradé) */
 .of-like__full {
   opacity: 0;
   background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
@@ -865,7 +817,7 @@ html {
   -webkit-text-fill-color: transparent;
 }
 
-/* ❌ Neutralise tout effet hérité du survol de la carte */
+/* Effets */
 .of-card:hover .of-like__full {
   opacity: 0;
 }
@@ -874,7 +826,6 @@ html {
   opacity: 1;
 }
 
-/* ✅ Et n’active le remplissage QUE sur le bouton */
 .of-like:hover .of-like__full {
   opacity: 1;
 }
@@ -886,18 +837,138 @@ html {
 /* ===== Grille Restaurants – tablette et + ===== */
 @media (min-width: 768px) {
   .of-restos {
-    margin: 60px auto 65px; /* centre la section */
+    margin: 60px auto 65px;
   }
   .of-restos__cards {
-    /* 2 colonnes fixes de 490px, sans étirer les cartes */
     grid-template-columns: repeat(2, 490px);
-    /* gaps responsives avec plafond demandé */
     -moz-column-gap: clamp(24px, 8vw, 100px);
     column-gap: clamp(24px, 8vw, 100px);
     row-gap: clamp(18px, 6vw, 50px);
-    /* largeur max finale (2×490 + 100) et centrage */
     max-width: 1080px;
     margin-inline: auto;
-    justify-content: center; /* centre la grille si plus large */
+    justify-content: center;
+  }
+}
+/* =========================
+   Loader plein écran (simple)
+   ========================= */
+.of-loader {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #f6f6f6;
+  z-index: 9999;
+  pointer-events: all;
+  touch-action: none;
+  animation: fadeOut 2.5s ease forwards;
+}
+
+/* =========================
+   Conteneur du loader
+   ========================= */
+.of-loader__box {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  padding: 24px 26px;
+  border-radius: 16px;
+  background: rgba(245, 245, 245, 0.9);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  overflow: visible !important; /* ✅ évite les coupes sur les lettres descendantes */
+}
+
+/* =========================
+   Logo – fix du “d” tronqué (Chrome & WebKit)
+   ========================= */
+.of-loader__logo {
+  display: inline-block;
+  font: 400 28px/1.25 "Shrikhand", cursive; /* ✅ line-height augmentée */
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* requis pour le gradient */
+  -webkit-text-stroke: 0.3px transparent; /* anti-flou WebKit */
+  text-align: center;
+  overflow: visible !important; /* ✅ empêche les coupes */
+  padding-right: 6px; /* ✅ évite le rognage à droite */
+  padding-bottom: 4px; /* ✅ évite le rognage bas */
+  line-height: 1.25; /* ✅ plus d’air vertical */
+  text-shadow: 1px 0 0 rgba(0, 0, 0, 0), 0 1px 0 rgba(0, 0, 0, 0); /* pousse la zone de rendu */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* réserve invisible à droite */
+.of-loader__logo::after {
+  content: " ";
+  display: inline-block;
+  width: 4px;
+  height: 0;
+  opacity: 0;
+}
+
+/* =========================
+   Dots animés
+   ========================= */
+.of-loader__spinner {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.of-loader__spinner span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  animation: bounce 0.9s ease-in-out infinite;
+}
+
+.of-loader__spinner span:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.of-loader__spinner span:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+/* =========================
+   Animations
+   ========================= */
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  40% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0%,
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+/* =========================
+   Accessibilité : réduit les animations
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+  .of-loader,
+  .of-loader__spinner span {
+    animation: none !important;
+  }
+  .of-loader {
+    opacity: 0;
+    visibility: hidden;
   }
 } /*# sourceMappingURL=main.css.map */
