@@ -47,9 +47,6 @@ $loader-time: 2.5s;
   padding-right: 6px;                        /* ✅ évite le rognage à droite */
   padding-bottom: 4px;                       /* ✅ évite le rognage bas */
   line-height: 1.25;                         /* ✅ plus d’air vertical */
-  text-shadow:
-    1px 0 0 rgba(0,0,0,0),
-    0 1px 0 rgba(0,0,0,0);                   /* pousse la zone de rendu */
   transform: translateZ(0);
   will-change: transform;
 }

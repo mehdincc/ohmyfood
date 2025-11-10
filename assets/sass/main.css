@@ -4,9 +4,10 @@
    ========================= */
 /* ===== VARIABLES ===== */
 /* ===== BREAKPOINTS ===== */
-/* ===== RESET ===== */
+/* ===== RESET + scroll ===== */
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -92,10 +93,6 @@ h3 {
   padding-inline: 16px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* =========================
    MIXINS GLOBAUX
    ========================= */
@@ -104,6 +101,9 @@ html {
    ========================= */
 /* Cartes plats */
 /* Typos menu */
+/* =========================
+   VARIABLES GLOBALES (temps du loader)
+   ========================= */
 /* ===== HEADER ===== */
 .of-header {
   background: #ffffff;
@@ -527,22 +527,7 @@ body.is-menu {
   transform: translateY(0) scale(1.01);
 }
 
-.of-dish:nth-child(1) {
-  animation-delay: 0.05s;
-}
-
-.of-dish:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.of-dish:nth-child(3) {
-  animation-delay: 1s;
-}
-
-.of-dish:nth-child(4) {
-  animation-delay: 1.5s;
-}
-
+/* (on enlève les anciens nth-child ici) */
 @keyframes dishIn {
   to {
     opacity: 1;
@@ -661,6 +646,64 @@ body.is-menu {
   flex-direction: column;
 }
 
+/* ===== Apparition après loader (2.5s) + cascade ===== */
+/* On réutilise $loader-time défini dans _global.scss ou _loader.scss importé */
+.of-dishes > .of-dish:nth-child(1) {
+  animation-delay: 2.7s;
+}
+
+.of-dishes > .of-dish:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.of-dishes > .of-dish:nth-child(3) {
+  animation-delay: 3.3s;
+}
+
+.of-dishes > .of-dish:nth-child(4) {
+  animation-delay: 3.6s;
+}
+
+.of-dishes > .of-dish:nth-child(5) {
+  animation-delay: 3.9s;
+}
+
+.of-dishes > .of-dish:nth-child(6) {
+  animation-delay: 4.2s;
+}
+
+.of-dishes > .of-dish:nth-child(7) {
+  animation-delay: 4.5s;
+}
+
+.of-dishes > .of-dish:nth-child(8) {
+  animation-delay: 4.8s;
+}
+
+.of-dishes > .of-dish:nth-child(9) {
+  animation-delay: 5.1s;
+}
+
+.of-dishes > .of-dish:nth-child(10) {
+  animation-delay: 5.4s;
+}
+
+.of-dishes > .of-dish:nth-child(11) {
+  animation-delay: 5.7s;
+}
+
+.of-dishes > .of-dish:nth-child(12) {
+  animation-delay: 6s;
+}
+
+/* Accessibilité : si animations réduites, on affiche direct */
+@media (prefers-reduced-motion: reduce) {
+  .of-dish {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 /* ===== BOUTONS ===== */
 .of-btn {
   display: inline-flex;
@@ -894,7 +937,6 @@ body.is-menu {
   padding-right: 6px; /* ✅ évite le rognage à droite */
   padding-bottom: 4px; /* ✅ évite le rognage bas */
   line-height: 1.25; /* ✅ plus d’air vertical */
-  text-shadow: 1px 0 0 rgba(0, 0, 0, 0), 0 1px 0 rgba(0, 0, 0, 0); /* pousse la zone de rendu */
   transform: translateZ(0);
   will-change: transform;
 }

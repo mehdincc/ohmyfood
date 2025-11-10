@@ -144,10 +144,9 @@ body.is-menu { background: $color-white; }
     transform: translateY(0) scale(1.01);
   }
 }
-.of-dish:nth-child(1){ animation-delay: .05s; }
-.of-dish:nth-child(2){ animation-delay: .5s; }
-.of-dish:nth-child(3){ animation-delay: 1s; }
-.of-dish:nth-child(4){ animation-delay: 1.5s; }
+
+/* (on enlève les anciens nth-child ici) */
+
 @keyframes dishIn{ to{ opacity:1; transform:translateY(0);} }
 
 .of-dish__content{ padding: 15px 7px 15px 15px; min-width: 0; }
@@ -188,3 +187,20 @@ body.is-menu { background: $color-white; }
   align-items: center;
   flex-direction: column;
 }
+
+/* ===== Apparition après loader (2.5s) + cascade ===== */
+/* On réutilise $loader-time défini dans _global.scss ou _loader.scss importé */
+$first-offset: .2s;   // 1re carte à 0.2s après la fin du loader
+$stagger: .3s;        // décalage entre chaque carte
+
+@for $i from 1 through 12 {
+  .of-dishes > .of-dish:nth-child(#{$i}) {
+    animation-delay: ($loader-time + $first-offset) + ($stagger * ($i - 1));
+  }
+}
+
+/* Accessibilité : si animations réduites, on affiche direct */
+@media (prefers-reduced-motion: reduce) {
+  .of-dish { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
