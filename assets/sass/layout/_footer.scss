@@ -2,7 +2,7 @@
 
 /* ===== FOOTER ===== */
 .of-footer {
-  background: $color-footer;
+  background:$color-text;
   color: $color-white;
   padding-block: 25px;
   padding-inline: 25px;
@@ -47,7 +47,7 @@
 @media (min-width: $bp-desktop) {
   .of-footer {
     position: relative;
-    background: $color-footer;
+    background: $color-text;
     color: $color-white;
     padding-block: 65px 30px;    /* top 65px, bottom 30px */
     padding-inline: 0;
