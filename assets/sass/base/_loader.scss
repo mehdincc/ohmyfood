@@ -28,25 +28,25 @@ $loader-time: 2.5s;
   border-radius: 16px;
   background: rgba(245,245,245,.9);
   box-shadow: 0 5px 20px rgba(0,0,0,.15);
-  overflow: visible !important; /* ✅ évite les coupes sur les lettres descendantes */
+  overflow: visible !important; 
 }
 
 /* =========================
-   Logo – fix du “d” tronqué (Chrome & WebKit)
+   Logo 
    ========================= */
 .of-loader__logo {
   display: inline-block;
-  font: 400 28px/1.25 $font-title; /* ✅ line-height augmentée */
+  font: 400 28px/1.25 $font-title; 
   background: $gradient-primary;
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;      /* requis pour le gradient */
-  -webkit-text-stroke: .3px transparent;     /* anti-flou WebKit */
+  -webkit-text-fill-color: transparent;      
+  -webkit-text-stroke: .3px transparent;     
   text-align: center;
-  overflow: visible !important;              /* ✅ empêche les coupes */
-  padding-right: 6px;                        /* ✅ évite le rognage à droite */
-  padding-bottom: 4px;                       /* ✅ évite le rognage bas */
-  line-height: 1.25;                         /* ✅ plus d’air vertical */
+  overflow: visible !important;              
+  padding-right: 6px;                       
+  padding-bottom: 4px;                      
+  line-height: 1.25;                         
   transform: translateZ(0);
   will-change: transform;
 }

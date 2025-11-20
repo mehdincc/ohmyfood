@@ -110,7 +110,6 @@ h3 {
 }
 .of-header__brand {
   padding: 10px;
-  padding-right: 50px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   position: relative;
@@ -183,23 +182,22 @@ h3 {
     position: relative;
     background: #353535;
     color: #ffffff;
-    padding-block: 65px 30px; /* top 65px, bottom 30px */
+    padding-block: 65px 30px;
     padding-inline: 0;
   }
-  /* Logo à gauche à 65px du bord gauche */
   .of-footer__logo {
     position: absolute;
-    right: 65px; /* ✅ distance du bord droit */
+    right: 65px;
   }
   /* Liste des liens centrée horizontalement */
   .of-footer__links {
     max-width: none;
-    margin: 0 auto; /* ✅ centrée */
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    gap: 40px; /* espace entre les liens */
+    gap: 40px;
     padding-right: 20%;
   }
   .of-footer__links a {
@@ -264,8 +262,8 @@ h3 {
   list-style: none;
   padding: 0;
   display: flex;
-  flex-direction: column; /* mobile = en colonne */
-  gap: 20px; /* ✅ espace entre les cartes */
+  flex-direction: column;
+  gap: 20px;
   counter-reset: step;
 }
 
@@ -334,7 +332,7 @@ h3 {
     flex-direction: row; /* côte à côte */
     justify-content: center;
     align-items: stretch;
-    gap: 35px; /* ✅ espace horizontal fixe */
+    gap: 35px;
   }
   .of-steps__item {
     flex: 1 1 0;
@@ -408,7 +406,6 @@ body.is-menu {
   color: #000000;
   margin: 0;
   text-align: center;
-  /* Empêche le chevauchement avec le cœur quand l’écran est très étroit */
   max-width: calc(100% - 56px);
 }
 
@@ -424,7 +421,6 @@ body.is-menu {
   background: transparent;
   border: 0;
   cursor: pointer;
-  /* On neutralise tous héritages possibles du .of-like global */
   left: auto;
   bottom: auto;
 }
@@ -652,7 +648,7 @@ body.is-menu {
 }
 
 /* ===== Apparition après loader (2.5s) + cascade ===== */
-/* On réutilise $loader-time défini dans _global.scss ou _loader.scss importé */
+/* On réutilise $loader-time défini dans _global */
 .of-dishes > .of-dish:nth-child(1) {
   animation-delay: 2.7s;
 }
@@ -701,14 +697,6 @@ body.is-menu {
   animation-delay: 6s;
 }
 
-/* Accessibilité : si animations réduites, on affiche direct */
-@media (prefers-reduced-motion: reduce) {
-  .of-dish {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
 /* ===== BOUTONS ===== */
 .of-btn {
   display: inline-flex;
@@ -910,7 +898,7 @@ body.is-menu {
   }
   .of-restos > h2,
   .of-restos__cards {
-    max-width: 1000px; /* largeur cohérente tablette */
+    max-width: 1000px;
     margin-inline: auto;
     text-align: left;
   }
@@ -923,7 +911,6 @@ body.is-menu {
 }
 /* ===== DESKTOP ===== */
 @media (min-width: 1024px) {
-  /* on garde des marges latérales même quand l’écran est pile à 1024px */
   .of-restos {
     margin: 60px auto 65px;
     padding-inline: clamp(16px, 4vw, 32px);
@@ -938,7 +925,6 @@ body.is-menu {
   }
   .of-restos__cards {
     display: grid;
-    /* grandit doucement jusqu’à 490px sans casser à 1024px */
     grid-template-columns: repeat(2, minmax(360px, 490px));
     -moz-column-gap: var(--gap);
     column-gap: var(--gap);
@@ -972,25 +958,25 @@ body.is-menu {
   border-radius: 16px;
   background: rgba(245, 245, 245, 0.9);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  overflow: visible !important; /* ✅ évite les coupes sur les lettres descendantes */
+  overflow: visible !important;
 }
 
 /* =========================
-   Logo – fix du “d” tronqué (Chrome & WebKit)
+   Logo 
    ========================= */
 .of-loader__logo {
   display: inline-block;
-  font: 400 28px/1.25 "Shrikhand", cursive; /* ✅ line-height augmentée */
+  font: 400 28px/1.25 "Shrikhand", cursive;
   background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent; /* requis pour le gradient */
-  -webkit-text-stroke: 0.3px transparent; /* anti-flou WebKit */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.3px transparent;
   text-align: center;
-  overflow: visible !important; /* ✅ empêche les coupes */
-  padding-right: 6px; /* ✅ évite le rognage à droite */
-  padding-bottom: 4px; /* ✅ évite le rognage bas */
-  line-height: 1.25; /* ✅ plus d’air vertical */
+  overflow: visible !important;
+  padding-right: 6px;
+  padding-bottom: 4px;
+  line-height: 1.25;
   transform: translateZ(0);
   will-change: transform;
 }

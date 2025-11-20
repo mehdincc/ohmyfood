@@ -10,7 +10,9 @@ html {
   scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -20,7 +22,7 @@ body {
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
   color: #353535;
-  background: #F6F6F6;
+  background: #f6f6f6;
 }
 
 img {
@@ -41,7 +43,8 @@ button {
 }
 
 /* ===== TYPO ===== */
-h1, h2 {
+h1,
+h2 {
   font: 700 24px/1 "Roboto", sans-serif;
 }
 
@@ -103,7 +106,7 @@ h3 {
    ========================= */
 /* ===== HEADER ===== */
 .of-header {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .of-header__brand {
   padding: 10px;
@@ -119,7 +122,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: #EAEAEA;
+  background: #eaeaea;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   padding: 15px;
   position: relative;
@@ -140,7 +143,7 @@ h3 {
 /* ===== FOOTER ===== */
 .of-footer {
   background: #353535;
-  color: #FFFFFF;
+  color: #ffffff;
   padding-block: 25px;
   padding-inline: 25px;
 }
@@ -178,24 +181,23 @@ h3 {
   .of-footer {
     position: relative;
     background: #353535;
-    color: #FFFFFF;
-    padding-block: 65px 30px; /* top 65px, bottom 30px */
+    color: #ffffff;
+    padding-block: 65px 30px;
     padding-inline: 0;
   }
-  /* Logo à gauche à 65px du bord gauche */
   .of-footer__logo {
     position: absolute;
-    right: 65px; /* ✅ distance du bord droit */
+    right: 65px;
   }
   /* Liste des liens centrée horizontalement */
   .of-footer__links {
     max-width: none;
-    margin: 0 auto; /* ✅ centrée */
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    gap: 40px; /* espace entre les liens */
+    gap: 40px;
     padding-right: 20%;
   }
   .of-footer__links a {
@@ -215,7 +217,7 @@ h3 {
 /* ===== HERO ===== */
 .of-hero {
   text-align: center;
-  background: #F6F6F6;
+  background: #f6f6f6;
   padding: 40px 20px 50px;
 }
 .of-hero__title {
@@ -240,7 +242,7 @@ h3 {
    STEPS (Fonctionnement)
    ========================= */
 .of-steps {
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 40px 0 65px; /* espace haut / bas */
   /* Titre et liste alignés comme la section Restaurants */
 }
@@ -260,8 +262,8 @@ h3 {
   list-style: none;
   padding: 0;
   display: flex;
-  flex-direction: column; /* mobile = en colonne */
-  gap: 20px; /* ✅ espace entre les cartes */
+  flex-direction: column;
+  gap: 20px;
   counter-reset: step;
 }
 
@@ -274,10 +276,11 @@ h3 {
   width: 100%;
   min-height: 72px;
   padding: 18px 28px 18px 55px; /* marge interne gauche plus large pour la pastille */
-  background: #F6F6F6;
+  background: #f6f6f6;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
-  transition: box-shadow 0.22s ease, transform 0.18s ease, background-color 0.22s ease;
+  transition: box-shadow 0.22s ease, transform 0.18s ease,
+    background-color 0.22s ease;
 }
 .of-steps__item:hover {
   transform: translateX(2px);
@@ -298,24 +301,24 @@ h3 {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #9356DC;
-  color: #FFFFFF;
+  background: #9356dc;
+  color: #ffffff;
   font: 500 13px/1 "Roboto", sans-serif;
 }
 
 /* Icône / texte */
 .of-steps__icon {
   font-size: 18px;
-  color: #7E7E7E;
+  color: #7e7e7e;
   transition: color 0.25s ease;
 }
 
 .of-steps__item:hover .of-steps__icon {
-  color: #9356DC;
+  color: #9356dc;
 }
 
 .of-steps__icon.fa-store {
-  color: #9356DC;
+  color: #9356dc;
 }
 
 .of-steps__text {
@@ -329,7 +332,7 @@ h3 {
     flex-direction: row; /* côte à côte */
     justify-content: center;
     align-items: stretch;
-    gap: 35px; /* ✅ espace horizontal fixe */
+    gap: 35px;
   }
   .of-steps__item {
     flex: 1 1 0;
@@ -340,7 +343,7 @@ h3 {
    PAGE MENU – La palette du goût
    ========================= */
 body.is-menu {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 /* Header spécifique (flèche retour) */
@@ -361,7 +364,7 @@ body.is-menu {
   transition: color 0.3s ease;
 }
 .is-menu .of-back:hover {
-  color: #9356DC;
+  color: #9356dc;
 }
 
 /* Bannière restaurant */
@@ -372,7 +375,7 @@ body.is-menu {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 
@@ -380,7 +383,7 @@ body.is-menu {
 .of-menu {
   position: relative;
   margin-top: -60px;
-  background: #F6F6F6;
+  background: #f6f6f6;
   border-radius: 40px 40px 0 0;
   padding: 30px 16px 40px;
 }
@@ -403,7 +406,6 @@ body.is-menu {
   color: #000000;
   margin: 0;
   text-align: center;
-  /* Empêche le chevauchement avec le cœur quand l’écran est très étroit */
   max-width: calc(100% - 56px);
 }
 
@@ -419,7 +421,6 @@ body.is-menu {
   background: transparent;
   border: 0;
   cursor: pointer;
-  /* On neutralise tous héritages possibles du .of-like global */
   left: auto;
   bottom: auto;
 }
@@ -439,7 +440,7 @@ body.is-menu {
 
 .of-menu__head .of-like .of-like__full {
   opacity: 0;
-  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -493,7 +494,7 @@ body.is-menu {
   display: block;
   width: 40px;
   height: 3px;
-  background: #99E2D0;
+  background: #99e2d0;
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 12px;
@@ -513,7 +514,7 @@ body.is-menu {
   align-items: stretch;
   max-width: 634px;
   min-height: 72px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 15.04px;
   box-shadow: 0px 4.01px 15.04px rgba(0, 0, 0, 0.1019607843);
   overflow: hidden;
@@ -582,8 +583,8 @@ body.is-menu {
   place-items: center;
   width: 100%;
   height: 100%;
-  background: #99E2D0;
-  color: #FFFFFF;
+  background: #99e2d0;
+  color: #ffffff;
   border-top-right-radius: 15.04px;
   border-bottom-right-radius: 15.04px;
   opacity: 0;
@@ -595,7 +596,7 @@ body.is-menu {
   position: absolute;
   width: 20px;
   height: 20px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
   top: 50%;
@@ -605,7 +606,7 @@ body.is-menu {
 .of-dish__check i {
   position: relative;
   z-index: 1;
-  color: #99E2D0;
+  color: #99e2d0;
   font-size: 14px;
   transition: transform 0.35s ease;
 }
@@ -647,7 +648,7 @@ body.is-menu {
 }
 
 /* ===== Apparition après loader (2.5s) + cascade ===== */
-/* On réutilise $loader-time défini dans _global.scss ou _loader.scss importé */
+/* On réutilise $loader-time défini dans _global */
 .of-dishes > .of-dish:nth-child(1) {
   animation-delay: 2.7s;
 }
@@ -696,14 +697,6 @@ body.is-menu {
   animation-delay: 6s;
 }
 
-/* Accessibilité : si animations réduites, on affiche direct */
-@media (prefers-reduced-motion: reduce) {
-  .of-dish {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
 /* ===== BOUTONS ===== */
 .of-btn {
   display: inline-flex;
@@ -721,13 +714,13 @@ body.is-menu {
   font-size: 16px;
   line-height: 1;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   transition: box-shadow 0.25s ease, filter 0.25s ease, transform 0.15s ease;
 }
 
 /* Bouton principal (violet → rose) */
 .of-btn--primary {
-  background-image: linear-gradient(to top, #9356DC 0%, #FF79DA 100%);
+  background-image: linear-gradient(to top, #9356dc 0%, #ff79da 100%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2509803922);
 }
 .of-btn--primary:hover {
@@ -762,7 +755,7 @@ body.is-menu {
   height: 251px;
   border-radius: 15px;
   overflow: hidden;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
   transition: transform 0.3s ease;
 }
@@ -780,7 +773,7 @@ body.is-menu {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* Badge "Nouveau" */
@@ -792,7 +785,7 @@ body.is-menu {
   height: 29px;
   display: grid;
   place-items: center;
-  background: #99E2D0;
+  background: #99e2d0;
   color: #008766;
   font: 500 14px "Roboto", sans-serif;
   border-radius: 2px;
@@ -827,7 +820,8 @@ body.is-menu {
   background: transparent;
   cursor: pointer;
 }
-.of-like:hover .of-like__empty, .of-like:hover .of-like__full {
+.of-like:hover .of-like__empty,
+.of-like:hover .of-like__full {
   transform: scale(1.08);
 }
 .of-like:focus-visible {
@@ -853,7 +847,7 @@ body.is-menu {
 
 .of-like__full {
   opacity: 0;
-  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -884,7 +878,10 @@ body.is-menu {
   }
   .of-restos__cards {
     display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 colonnes adaptatives */
+    grid-template-columns: repeat(
+      2,
+      minmax(300px, 1fr)
+    ); /* 2 colonnes adaptatives */
     gap: clamp(20px, 5vw, 40px); /* espace qui s’adapte à la largeur */
     max-width: 100%;
     margin-inline: auto;
@@ -901,7 +898,7 @@ body.is-menu {
   }
   .of-restos > h2,
   .of-restos__cards {
-    max-width: 1000px; /* largeur cohérente tablette */
+    max-width: 1000px;
     margin-inline: auto;
     text-align: left;
   }
@@ -914,7 +911,6 @@ body.is-menu {
 }
 /* ===== DESKTOP ===== */
 @media (min-width: 1024px) {
-  /* on garde des marges latérales même quand l’écran est pile à 1024px */
   .of-restos {
     margin: 60px auto 65px;
     padding-inline: clamp(16px, 4vw, 32px);
@@ -929,10 +925,9 @@ body.is-menu {
   }
   .of-restos__cards {
     display: grid;
-    /* grandit doucement jusqu’à 490px sans casser à 1024px */
     grid-template-columns: repeat(2, minmax(360px, 490px));
     -moz-column-gap: var(--gap);
-         column-gap: var(--gap);
+    column-gap: var(--gap);
     row-gap: clamp(20px, 4vw, 50px);
     justify-content: center;
   }
@@ -945,7 +940,7 @@ body.is-menu {
   inset: 0;
   display: grid;
   place-items: center;
-  background: #F6F6F6;
+  background: #f6f6f6;
   z-index: 9999;
   pointer-events: all;
   touch-action: none;
@@ -963,25 +958,25 @@ body.is-menu {
   border-radius: 16px;
   background: rgba(245, 245, 245, 0.9);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  overflow: visible !important; /* ✅ évite les coupes sur les lettres descendantes */
+  overflow: visible !important;
 }
 
 /* =========================
-   Logo – fix du “d” tronqué (Chrome & WebKit)
+   Logo 
    ========================= */
 .of-loader__logo {
   display: inline-block;
-  font: 400 28px/1.25 "Shrikhand", cursive; /* ✅ line-height augmentée */
-  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  font: 400 28px/1.25 "Shrikhand", cursive;
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent; /* requis pour le gradient */
-  -webkit-text-stroke: 0.3px transparent; /* anti-flou WebKit */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.3px transparent;
   text-align: center;
-  overflow: visible !important; /* ✅ empêche les coupes */
-  padding-right: 6px; /* ✅ évite le rognage à droite */
-  padding-bottom: 4px; /* ✅ évite le rognage bas */
-  line-height: 1.25; /* ✅ plus d’air vertical */
+  overflow: visible !important;
+  padding-right: 6px;
+  padding-bottom: 4px;
+  line-height: 1.25;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -1007,7 +1002,7 @@ body.is-menu {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
   animation: bounce 0.9s ease-in-out infinite;
 }
 
@@ -1023,7 +1018,9 @@ body.is-menu {
    Animations
    ========================= */
 @keyframes bounce {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: translateY(0);
     opacity: 0.85;
   }
@@ -1033,7 +1030,8 @@ body.is-menu {
   }
 }
 @keyframes fadeOut {
-  0%, 90% {
+  0%,
+  90% {
     opacity: 1;
     visibility: visible;
   }
@@ -1055,4 +1053,4 @@ body.is-menu {
     opacity: 0;
     visibility: hidden;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

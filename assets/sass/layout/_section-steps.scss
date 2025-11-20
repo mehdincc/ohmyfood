@@ -26,8 +26,8 @@
   list-style: none;
   padding: 0;
   display: flex;
-  flex-direction: column; /* mobile = en colonne */
-  gap: 20px;              /* ✅ espace entre les cartes */
+  flex-direction: column; 
+  gap: 20px;              
   counter-reset: step;
 }
 
@@ -94,7 +94,7 @@
     flex-direction: row;   /* côte à côte */
     justify-content: center;
     align-items: stretch;
-    gap: 35px;             /* ✅ espace horizontal fixe */
+    gap: 35px;        
   }
 
   .of-steps__item {

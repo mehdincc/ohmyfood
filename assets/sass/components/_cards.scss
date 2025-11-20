@@ -147,7 +147,7 @@
 
   .of-restos > h2,
   .of-restos__cards {
-    max-width: 1000px; /* largeur cohérente tablette */
+    max-width: 1000px;
     margin-inline: auto;
     text-align: left;
   }
@@ -163,7 +163,6 @@
 /* ===== DESKTOP ===== */
 
 @media (min-width: $bp-desktop) {
-  /* on garde des marges latérales même quand l’écran est pile à 1024px */
   .of-restos {
     margin: 60px auto 65px;
     padding-inline: clamp(16px, 4vw, 32px);
@@ -181,7 +180,6 @@
 
   .of-restos__cards {
     display: grid;
-    /* grandit doucement jusqu’à 490px sans casser à 1024px */
     grid-template-columns: repeat(2, minmax(360px, 490px));
     column-gap: var(--gap);
     row-gap: clamp(20px, 4vw, 50px);

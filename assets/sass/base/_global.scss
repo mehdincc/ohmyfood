@@ -29,7 +29,7 @@ $bp-desktop: 1024px;
 /* ===== RESET + scroll ===== */
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth; // fusionné ici
+  scroll-behavior: smooth; 
 }
 *, *::before, *::after {
   box-sizing: inherit;

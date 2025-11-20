@@ -35,8 +35,8 @@
 
     i {
       font-size: 13px;
-      width: 22px;             // largeur fixe
-      flex: 0 0 22px;          // empêche le rétrécissement
+      width: 22px;             
+      flex: 0 0 22px;         
     }
 
   
@@ -49,14 +49,14 @@
     position: relative;
     background: $color-text;
     color: $color-white;
-    padding-block: 65px 30px;    /* top 65px, bottom 30px */
+    padding-block: 65px 30px;    
     padding-inline: 0;
   }
 
-  /* Logo à gauche à 65px du bord gauche */
+  
   .of-footer__logo {
    position: absolute;
-   right: 65px;       /* ✅ distance du bord droit */
+   right: 65px;     
 
     
   }
@@ -64,12 +64,12 @@
   /* Liste des liens centrée horizontalement */
   .of-footer__links {
     max-width: none;
-    margin: 0 auto;              /* ✅ centrée */
+    margin: 0 auto;              
     display: flex;
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    gap: 40px;                   /* espace entre les liens */
+    gap: 40px;                   
     padding-right: 20%;
   }
 

@@ -2,11 +2,11 @@
 
 /* ===== BOUTONS ===== */
 .of-btn {
-  display: inline-flex;              // même rendu pour <a> et <button>
+  display: inline-flex;              
   align-items: center;
   justify-content: center;
   vertical-align: middle;
-  text-decoration: none;             // enlève soulignement du <a>
+  text-decoration: none;             
   border: none;
   border-radius: 25px;
   cursor: pointer;
