@@ -10,9 +10,7 @@ html {
   scroll-behavior: smooth;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -22,7 +20,7 @@ body {
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
   color: #353535;
-  background: #f6f6f6;
+  background: #F6F6F6;
 }
 
 img {
@@ -43,8 +41,7 @@ button {
 }
 
 /* ===== TYPO ===== */
-h1,
-h2 {
+h1, h2 {
   font: 700 24px/1 "Roboto", sans-serif;
 }
 
@@ -106,7 +103,7 @@ h3 {
    ========================= */
 /* ===== HEADER ===== */
 .of-header {
-  background: #ffffff;
+  background: #FFFFFF;
 }
 .of-header__brand {
   padding: 10px;
@@ -122,7 +119,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: #eaeaea;
+  background: #EAEAEA;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   padding: 15px;
   position: relative;
@@ -143,7 +140,7 @@ h3 {
 /* ===== FOOTER ===== */
 .of-footer {
   background: #353535;
-  color: #ffffff;
+  color: #FFFFFF;
   padding-block: 25px;
   padding-inline: 25px;
 }
@@ -181,7 +178,7 @@ h3 {
   .of-footer {
     position: relative;
     background: #353535;
-    color: #ffffff;
+    color: #FFFFFF;
     padding-block: 65px 30px;
     padding-inline: 0;
   }
@@ -217,7 +214,7 @@ h3 {
 /* ===== HERO ===== */
 .of-hero {
   text-align: center;
-  background: #f6f6f6;
+  background: #F6F6F6;
   padding: 40px 20px 50px;
 }
 .of-hero__title {
@@ -242,7 +239,7 @@ h3 {
    STEPS (Fonctionnement)
    ========================= */
 .of-steps {
-  background: #ffffff;
+  background: #FFFFFF;
   padding: 40px 0 65px; /* espace haut / bas */
   /* Titre et liste alignés comme la section Restaurants */
 }
@@ -276,11 +273,10 @@ h3 {
   width: 100%;
   min-height: 72px;
   padding: 18px 28px 18px 55px; /* marge interne gauche plus large pour la pastille */
-  background: #f6f6f6;
+  background: #F6F6F6;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
-  transition: box-shadow 0.22s ease, transform 0.18s ease,
-    background-color 0.22s ease;
+  transition: box-shadow 0.22s ease, transform 0.18s ease, background-color 0.22s ease;
 }
 .of-steps__item:hover {
   transform: translateX(2px);
@@ -301,24 +297,24 @@ h3 {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #9356dc;
-  color: #ffffff;
+  background: #9356DC;
+  color: #FFFFFF;
   font: 500 13px/1 "Roboto", sans-serif;
 }
 
 /* Icône / texte */
 .of-steps__icon {
   font-size: 18px;
-  color: #7e7e7e;
+  color: #7E7E7E;
   transition: color 0.25s ease;
 }
 
 .of-steps__item:hover .of-steps__icon {
-  color: #9356dc;
+  color: #9356DC;
 }
 
 .of-steps__icon.fa-store {
-  color: #9356dc;
+  color: #9356DC;
 }
 
 .of-steps__text {
@@ -343,7 +339,7 @@ h3 {
    PAGE MENU – La palette du goût
    ========================= */
 body.is-menu {
-  background: #ffffff;
+  background: #FFFFFF;
 }
 
 /* Header spécifique (flèche retour) */
@@ -364,7 +360,7 @@ body.is-menu {
   transition: color 0.3s ease;
 }
 .is-menu .of-back:hover {
-  color: #9356dc;
+  color: #9356DC;
 }
 
 /* Bannière restaurant */
@@ -375,7 +371,7 @@ body.is-menu {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 
@@ -383,7 +379,7 @@ body.is-menu {
 .of-menu {
   position: relative;
   margin-top: -60px;
-  background: #f6f6f6;
+  background: #F6F6F6;
   border-radius: 40px 40px 0 0;
   padding: 30px 16px 40px;
 }
@@ -440,7 +436,7 @@ body.is-menu {
 
 .of-menu__head .of-like .of-like__full {
   opacity: 0;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -494,7 +490,7 @@ body.is-menu {
   display: block;
   width: 40px;
   height: 3px;
-  background: #99e2d0;
+  background: #99E2D0;
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 12px;
@@ -514,7 +510,7 @@ body.is-menu {
   align-items: stretch;
   max-width: 634px;
   min-height: 72px;
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 15.04px;
   box-shadow: 0px 4.01px 15.04px rgba(0, 0, 0, 0.1019607843);
   overflow: hidden;
@@ -583,8 +579,8 @@ body.is-menu {
   place-items: center;
   width: 100%;
   height: 100%;
-  background: #99e2d0;
-  color: #ffffff;
+  background: #99E2D0;
+  color: #FFFFFF;
   border-top-right-radius: 15.04px;
   border-bottom-right-radius: 15.04px;
   opacity: 0;
@@ -596,7 +592,7 @@ body.is-menu {
   position: absolute;
   width: 20px;
   height: 20px;
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
   top: 50%;
@@ -606,7 +602,7 @@ body.is-menu {
 .of-dish__check i {
   position: relative;
   z-index: 1;
-  color: #99e2d0;
+  color: #99E2D0;
   font-size: 14px;
   transition: transform 0.35s ease;
 }
@@ -714,13 +710,13 @@ body.is-menu {
   font-size: 16px;
   line-height: 1;
   text-align: center;
-  color: #ffffff;
+  color: #FFFFFF;
   transition: box-shadow 0.25s ease, filter 0.25s ease, transform 0.15s ease;
 }
 
 /* Bouton principal (violet → rose) */
 .of-btn--primary {
-  background-image: linear-gradient(to top, #9356dc 0%, #ff79da 100%);
+  background-image: linear-gradient(to top, #9356DC 0%, #FF79DA 100%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2509803922);
 }
 .of-btn--primary:hover {
@@ -755,7 +751,7 @@ body.is-menu {
   height: 251px;
   border-radius: 15px;
   overflow: hidden;
-  background: #ffffff;
+  background: #FFFFFF;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
   transition: transform 0.3s ease;
 }
@@ -773,7 +769,7 @@ body.is-menu {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 
 /* Badge "Nouveau" */
@@ -785,7 +781,7 @@ body.is-menu {
   height: 29px;
   display: grid;
   place-items: center;
-  background: #99e2d0;
+  background: #99E2D0;
   color: #008766;
   font: 500 14px "Roboto", sans-serif;
   border-radius: 2px;
@@ -820,8 +816,7 @@ body.is-menu {
   background: transparent;
   cursor: pointer;
 }
-.of-like:hover .of-like__empty,
-.of-like:hover .of-like__full {
+.of-like:hover .of-like__empty, .of-like:hover .of-like__full {
   transform: scale(1.08);
 }
 .of-like:focus-visible {
@@ -847,7 +842,7 @@ body.is-menu {
 
 .of-like__full {
   opacity: 0;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -878,10 +873,7 @@ body.is-menu {
   }
   .of-restos__cards {
     display: grid;
-    grid-template-columns: repeat(
-      2,
-      minmax(300px, 1fr)
-    ); /* 2 colonnes adaptatives */
+    grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 colonnes adaptatives */
     gap: clamp(20px, 5vw, 40px); /* espace qui s’adapte à la largeur */
     max-width: 100%;
     margin-inline: auto;
@@ -927,7 +919,7 @@ body.is-menu {
     display: grid;
     grid-template-columns: repeat(2, minmax(360px, 490px));
     -moz-column-gap: var(--gap);
-    column-gap: var(--gap);
+         column-gap: var(--gap);
     row-gap: clamp(20px, 4vw, 50px);
     justify-content: center;
   }
@@ -940,7 +932,7 @@ body.is-menu {
   inset: 0;
   display: grid;
   place-items: center;
-  background: #f6f6f6;
+  background: #F6F6F6;
   z-index: 9999;
   pointer-events: all;
   touch-action: none;
@@ -967,7 +959,7 @@ body.is-menu {
 .of-loader__logo {
   display: inline-block;
   font: 400 28px/1.25 "Shrikhand", cursive;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1002,7 +994,7 @@ body.is-menu {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: linear-gradient(193.33deg, #9356dc -11.44%, #ff79da 123.93%);
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   animation: bounce 0.9s ease-in-out infinite;
 }
 
@@ -1018,9 +1010,7 @@ body.is-menu {
    Animations
    ========================= */
 @keyframes bounce {
-  0%,
-  80%,
-  100% {
+  0%, 80%, 100% {
     transform: translateY(0);
     opacity: 0.85;
   }
@@ -1030,8 +1020,7 @@ body.is-menu {
   }
 }
 @keyframes fadeOut {
-  0%,
-  90% {
+  0%, 90% {
     opacity: 1;
     visibility: visible;
   }
@@ -1053,4 +1042,4 @@ body.is-menu {
     opacity: 0;
     visibility: hidden;
   }
-} /*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
