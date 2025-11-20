@@ -104,17 +104,3 @@ $loader-time: 2.5s;
     pointer-events: none;
   }
 }
-
-/* =========================
-   Accessibilité : réduit les animations
-   ========================= */
-@media (prefers-reduced-motion: reduce) {
-  .of-loader,
-  .of-loader__spinner span {
-    animation: none !important;
-  }
-  .of-loader {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
