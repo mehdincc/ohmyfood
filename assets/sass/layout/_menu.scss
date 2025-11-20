@@ -192,7 +192,7 @@ $stagger: .3s;        // décalage entre chaque carte
 
 @for $i from 1 through 12 {
   .of-dishes > .of-dish:nth-child(#{$i}) {
-    animation-delay: ($loader-time + $first-offset) + ($stagger * ($i - 1));
+    animation-delay: ($first-offset) + ($stagger * ($i - 1));
   }
 }
 
